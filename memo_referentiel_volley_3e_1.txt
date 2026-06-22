@@ -1,0 +1,127 @@
+================================================================================
+MÉMO DE DISCUSSION — RÉFÉRENTIEL EPS VOLLEY-BALL
+================================================================================
+Date        : 24 avril 2026
+Objet       : Extraction et organisation du référentiel officiel DNB
+APS         : Volley-ball (Sport de renvoi)
+Niveau      : Diplôme National du Brevet — Niveau 2 de compétence
+Population  : Collégiens — 3ème (débutants)
+Expert      : Enseignant EPS / Didactique des APSA
+================================================================================
+
+
+1. PROTOCOLE D'ÉVALUATION — VUE D'ENSEMBLE
+--------------------------------------------------------------------------------
+Barème total         : 20 points
+Format de jeu        : Effectifs réduits, rapport de force équilibré a priori
+                       Jeu en 2 contre 2
+Rôles des élèves     : Joueur / Observateur / Co-arbitre (rotation)
+Temps de concertation: Prévus au cours des phases de jeu
+
+
+2. CRITÈRES D'ÉVALUATION ET PONDÉRATION
+--------------------------------------------------------------------------------
+
+CRITÈRE 1 — Efficacité collective dans le gain du match
+  Pondération : 8 points (gains des matchs sur 2 points)
+
+  NIVEAU C (0 – 2,5 pts) — Jeu en réaction
+    → Actions souvent individuelles de renvoi chez l'adversaire.
+
+  NIVEAU B (3 – 4,5 pts) — Construction collective de l'attaque
+    → Progression de la balle vers une zone de renvoi favorable.
+
+  NIVEAU A (5 – 6 pts) — Intention collective de rupture
+    → Attaque intentionnelle de la cible.
+    → Des attaques placées ou accélérées sont observées.
+
+--------------------------------------------------------------------------------
+
+CRITÈRE 2 — Efficacité individuelle dans l'organisation collective
+  Pondération : 8 points
+
+  NIVEAU C (0 – 3,5 pts) — Joueur intermittent ou bénéficiaire de règles aménagées
+    → Ne fait pas toujours les bons choix.
+    → Efficacité limitée dans le jeu collectif.
+
+  NIVEAU B (4 – 6 pts) — Joueur efficace en situation favorable
+    → Conserve la balle ou offre une solution de passe.
+    → Renvois placés ou accélérés, en situation favorable.
+
+  NIVEAU A (6,5 – 8 pts) — Joueur mobile pour être efficace
+    → Bonifie les balles.
+    → Renvois placés ou accélérés.
+
+--------------------------------------------------------------------------------
+
+CRITÈRE 3 — Efficacité dans le rôle d'arbitre et d'observateur
+  Pondération : 4 points
+
+  NIVEAU C (0 – 1,5 pts) — Rôles insuffisamment assurés
+    → Recueille des données insuffisamment fiables.
+    → En tant qu'arbitre, hésite parfois sur des actions difficiles à arbitrer.
+
+  NIVEAU B (2 – 3 pts) — Rôles assumés
+    → Recueille des données globales, justes et fiables.
+    → Assume le rôle d'arbitre avec de l'aide.
+
+  NIVEAU A (3,5 – 4 pts) — Rôles assurés
+    → Recueille des données différenciées exploitables.
+    → Assure son rôle d'arbitre.
+
+--------------------------------------------------------------------------------
+
+
+3. SPÉCIFICITÉS DE L'APS À PRENDRE EN COMPTE — OBSERVATION TERRAIN
+--------------------------------------------------------------------------------
+
+a) Règles aménagées du dispositif
+   - Service aménagé : ballon lancé à deux mains depuis la zone arrière.
+   - Blocage bref du ballon autorisé dans l'instant, à deux mains au-dessus
+     de la tête, sur la 1ère ou 2ème touche de balle.
+   - Double touche autorisée sur 1ère ou 2ème touche.
+
+b) Format 2 contre 2
+   - Chaque élève est en permanence exposé : l'observation du critère 2
+     (efficacité individuelle) est directement facilitée.
+   - Le petit effectif rend lisible la prise de décision individuelle
+     (passe, renvoi, déplacement).
+
+c) Temps de concertation
+   - Des temps de concertation entre élèves sont prévus pendant les phases
+     de jeu (temps morts).
+   - Observer si les élèves exploitent ces moments pour réguler leur projet
+     de jeu collectif → indicateur du critère 1.
+
+d) Fiche d'observation (critère 3)
+   - La fiche remplie lors des temps morts est un artefact direct d'évaluation.
+   - À récupérer et analyser : qualité et différenciation des données collectées.
+
+e) Rotation des rôles sociaux
+   - Chaque élève passe dans les trois rôles : joueur, observateur, co-arbitre.
+   - L'évaluation du critère 3 n'est possible que si la rotation est
+     effectivement assurée pendant la séquence.
+
+
+4. COMPÉTENCES DU SOCLE COMMUN ASSOCIÉES
+--------------------------------------------------------------------------------
+
+C1 — Formuler clairement un propos simple ; participer à un débat/échange
+  Indicateur : L'élève s'exprime pour expliquer les choix réalisés dans les
+  différents rôles (joueur, arbitre, observateur). Il maîtrise un vocabulaire
+  précis et spécifique lors des échanges liés à l'observation et aux temps morts.
+
+C3 — Rechercher, extraire et organiser l'information utile
+  Indicateur : L'élève recueille des données en renseignant une fiche
+  d'observation avec une grande fiabilité. Ces informations permettent à
+  l'équipe de réguler le projet de jeu observé au temps mort.
+
+C7 — Assumer des rôles, prendre des initiatives et des décisions
+  Indicateur : L'élève dirige le jeu avec assurance. Il est reconnu dans son
+  rôle d'arbitre car il prend des décisions avec justesse et lucidité, au
+  regard d'un référentiel précis : le règlement.
+
+
+================================================================================
+FIN DU MÉMO
+================================================================================

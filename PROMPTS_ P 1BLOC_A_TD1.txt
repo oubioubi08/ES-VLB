@@ -1,0 +1,521 @@
+═══════════════════════════════════════════════════════════════════════════
+PROMPTS STRUCTURÉS — BLOC A · DISCUSSION ET VALIDATION
+ADP 2026 · CRMEF Souss-Massa · Section EPS
+Formateur : BOUARGANE
+Version : Avril 2026
+═══════════════════════════════════════════════════════════════════════════
+
+RAPPEL — STRUCTURE OBLIGATOIRE DE CHAQUE PROMPT (8 COMPOSANTES)
+─────────────────────────────────────────────────────────────────
+  [1] Rôle IA        Qui est l'IA dans ce contexte
+  [2] Contexte       APS · Famille · Niveau · Population
+  [3] Tâche exacte   Ce que l'IA doit produire
+  [4] Référentiel    Document joint ou données fournies
+  [5] Contraintes    Normes · limites · format imposé
+  [6] Format sortie  Structure du résultat attendu
+  [7] Sortie         Livrable nommé et précis
+  [8] Critique       Ce que l'équipe devra noter dans Section F
+
+  RÈGLE : Ne jamais lancer le prompt suivant sans avoir noté dans
+  Section F ce qui a fonctionné et ce qui a été ajusté dans le prompt
+  précédent.
+
+
+═══════════════════════════════════════════════════════════════════════════
+PROMPT P1 — ANALYSE DU RÉFÉRENTIEL
+Objectif : Extraire les critères · niveaux · indicateurs du référentiel
+═══════════════════════════════════════════════════════════════════════════
+
+MODÈLE GÉNÉRIQUE (à compléter par l'équipe)
+───────────────────────────────────────────
+[1] RÔLE IA
+Tu es un enseignant EPS expert en didactique des activités physiques
+et sportives, spécialiste du référentiel [VOLLEYBALL] niveau [1AC et 2AC et 3AC ].
+
+[2] CONTEXTE
+APS         : [ex. Handball / Haies / Gymnastique sportive / Volley-ball]
+Famille     : [ex. Sport collectif / Athlétisme / Gym / Sport de renvoi]
+Niveau      : [ex. DNB débutants / Niveau 2 / CP4]
+Population  : Collégiens / lycéens · niveau [préciser]
+
+[3] TÂCHE
+À partir du référentiel officiel joint en PDF, extraire et organiser :
+  · Les critères d'évaluation avec leur pondération exacte
+  · Les indicateurs observables par critère
+  · Les 3 niveaux de maîtrise A / B / C avec les termes EXACTS
+    du référentiel
+  · Les spécificités de l'APS à prendre en compte pour l'observation
+    terrain
+
+[4] RÉFÉRENTIEL
+Protocole officiel [APS] [Niveau] joint en PDF dans cette conversation.
+[JOINDRE LE PDF AVANT D'ENVOYER LE PROMPT]
+
+[5] CONTRAINTES
+  · Utiliser UNIQUEMENT les termes exacts du référentiel officiel
+  · Ne pas reformuler ni paraphraser les descripteurs de niveaux
+  · Signaler si un terme qualitatif est absent pour un degré
+    (ex. C1 haies = barème chiffré uniquement)
+  · Identifier les spécificités : barème genré · cotation difficulté ·
+    2 essais · règles aménagées · rôles sociaux
+
+[6] FORMAT SORTIE
+Tableau structuré · 4 colonnes :
+  Colonne 1 : Critère (intitulé exact + points)
+  Colonne 2 : Indicateurs observables
+  Colonne 3 : Degré A — terme exact + descripteurs
+  Colonne 4 : Degré B — terme exact + descripteurs
+  Colonne 5 : Degré C — terme exact + descripteurs
++ Section finale : Spécificités terrain à intégrer dans la fiche
+
+[7] SORTIE ATTENDUE
+Tableau d'analyse du référentiel · prêt à soumettre au enseignant
+Nom fichier : Analyse_Ref_[APS]_Equipe[N]_ADP2026
+
+[8] CRITIQUE À NOTER DANS SECTION F
+  · L'IA a-t-elle respecté les termes exacts ou paraphrasé ?
+  · Quels termes ont été modifiés ? Pourquoi ?
+  · Combien d'itérations pour obtenir le tableau conforme ?
+  · Quelle composante du prompt a été la plus déterminante ?
+
+───────────────────────────────────────────
+EXEMPLES COMPLÉTÉS PAR FAMILLE
+───────────────────────────────────────────
+
+P1 — HANDBALL DNB
+  [1] Tu es un enseignant EPS expert en handball scolaire DNB.
+  [2] APS : Handball · Famille : Sport collectif · Niveau : DNB débutants
+      Population : Collégiens 3e · première expérience de jeu organisé
+  [3] [Tâche générique — voir ci-dessus]
+  [4] Référentiel DNB Handball joint en PDF.
+  [5] + Contrainte spécifique : Identifier les 6 volets observables
+      (PB · NP · DF individuels + JO · DO · GE collectifs) · signaler
+      l'absence de C3 rôles sociaux dans ce référentiel
+  [6] [Format générique — voir ci-dessus]
+  [7] Analyse_Ref_HDB_Equipe[N]_ADP2026
+  [8] Section F : noter si l'IA a spontanément distingué volets
+      individuels et collectifs ou si la contrainte [5] était nécessaire
+
+P1 — HAIES NIVEAU 2
+  [1] Tu es un enseignant EPS expert en athlétisme scolaire niveau 2.
+  [2] APS : Course de haies · Famille : Athlétisme · Niveau : Niveau 2
+      Population : Collégiens / lycéens · effectif réduit 3-4 élèves
+  [3] [Tâche générique — voir ci-dessus]
+  [4] Référentiel Haies Niveau 2 joint en PDF.
+  [5] + Contraintes spécifiques :
+      · C1 performance = barème chiffré objectif · pas de terme qualitatif
+        dans le référentiel · le signaler explicitement
+      · Fournir les deux barèmes séparés : Filles ET Garçons
+      · Identifier les 3 termes exacts de C2 :
+        "Coureur sauteur" · "Coureur coordonné" · "Coureur accélérateur"
+      · Identifier les 3 termes exacts de C3 :
+        "Juge dilettante" · "Juge fiable" · "Juge multifonctions"
+  [6] [Format générique + colonne genre pour C1]
+  [7] Analyse_Ref_ATH_Equipe[N]_ADP2026
+  [8] Section F : noter si l'IA a signalé spontanément l'absence
+      de terme qualitatif pour C1 · sinon quelle composante l'a forcé
+
+P1 — GYMNASTIQUE SPORTIVE DNB
+  [1] Tu es un enseignant EPS expert en gymnastique sportive scolaire DNB.
+  [2] APS : Gym sportive · Famille : Activité gymnique · Niveau : DNB
+      Population : Collégiens 3e · enchainement formalisé · jury
+  [3] [Tâche générique — voir ci-dessus]
+  [4] Référentiel DNB Gymnastique sportive joint en PDF.
+  [5] + Contraintes spécifiques :
+      · Identifier les 3 termes EXACTS de C1 :
+        "L'enchaînement est minimal" · "construit" · "riche et original"
+      · Identifier les 3 termes EXACTS de C2 :
+        "Le gymnaste exécute" · "maîtrise" · "anticipe"
+      · Identifier les 3 termes EXACTS de C3 :
+        "Le jugement est partiel" · "argumenté" · "pertinent"
+      · Signaler la cotation difficulté D=0,7 · C=0,8 · B=0,9 · A=1
+      · Signaler les 2 essais et le lien C3 juge → C1 essai 2
+  [6] [Format générique + colonne coefficient difficulté]
+  [7] Analyse_Ref_GYM_Equipe[N]_ADP2026
+  [8] Section F : noter si l'IA a spontanément intégré le coefficient
+      dans sa lecture de C1 ou si la contrainte était nécessaire
+
+P1 — VOLLEY-BALL DNB
+  [1] Tu es un enseignant EPS expert en volley-ball scolaire DNB.
+  [2] APS : Volley-ball · Famille : Sport de renvoi · Niveau : DNB
+      Population : Collégiens · jeu à effectif réduit · règles aménagées
+  [3] [Tâche générique — voir ci-dessus]
+  [4] Référentiel DNB Volley-ball joint en PDF.
+  [5] + Contraintes spécifiques :
+      · Identifier les 3 termes EXACTS de C1 :
+        "Jeu en réaction" · "Construction collective de l'attaque" ·
+        "Intention collective de rupture"
+      · Identifier les 3 termes EXACTS de C2 :
+        "Joueur intermittent ou devant bénéficier de règles aménagées" ·
+        "Joueur efficace en situation favorable" ·
+        "Joueur mobile pour être efficace"
+      · Identifier les 3 termes EXACTS de C3 :
+        "Rôles insuffisamment assurés" · "Rôles assumés" (avec aide) ·
+        "Rôles assurés"
+      · Signaler la distinction "assumés" (B) vs "assurés" (C)
+      · Signaler la mention "règles aménagées" pour très débutants
+  [6] [Format générique + colonne flag RA si règles aménagées]
+  [7] Analyse_Ref_VLY_Equipe[N]_ADP2026
+  [8] Section F : noter si l'IA a distingué spontanément
+      "assumés" / "assurés" ou si la contrainte [5] était nécessaire
+
+
+═══════════════════════════════════════════════════════════════════════════
+PROMPT P2 — GRILLE D'ÉVALUATION C1 / C2 (/ C3)
+Objectif : Construire la grille simplifiée sourcée depuis le référentiel
+Prérequis : P1 terminé · tableau d'analyse validé par l'équipe
+═══════════════════════════════════════════════════════════════════════════
+
+MODÈLE GÉNÉRIQUE (à compléter par l'équipe)
+───────────────────────────────────────────
+[1] RÔLE IA
+Tu es un enseignant EPS expert en évaluation didactique, spécialiste
+de la construction de grilles d'observation terrain pour l'APS [VOLLEYBALL].
+
+[2] CONTEXTE
+APS         : [_VOLLEY__]
+Famille     : [__SPORT DE RENVOI_]
+Niveau      : [_1 AC ET 2 AC 3AC __]
+Analyse P1  : [COLLER LE TABLEAU PRODUIT PAR P1]
+
+[3] TÂCHE
+À partir de l'analyse du référentiel fournie, construire une grille
+d'évaluation simplifiée en 2 critères principaux :
+  C1 = [intitulé exact selon APS] · pondération /10
+  C2 = [intitulé exact selon APS] · pondération /10
+  C3 = [intitulé exact si présent] · pondération /4 (bonus)
+  Note /20 = C1 + C2 · lecture directe · sans calcul complexe
+
+Pour chaque critère et chaque degré :
+  · Utiliser UNIQUEMENT les termes exacts du référentiel
+  · Fournir 2 à 3 indicateurs observables terrain (comportement visible)
+  · Indiquer le seuil de points correspondant
+
+[4] RÉFÉRENTIEL
+Analyse référentiel P1 fournie ci-dessus.
+Termes exacts à respecter impérativement :
+  C1-A : [terme exact] · C1-B : [terme exact] · C1-C : [terme exact]
+  C2-A : [terme exact] · C2-B : [terme exact] · C2-C : [terme exact]
+  C3-A : [terme exact] · C3-B : [terme exact] · C3-C : [terme exact]
+[COMPLÉTER DEPUIS LE TABLEAU P1]
+
+[5] CONTRAINTES
+  · Termes A/B/C EXACTEMENT ceux du référentiel — pas de reformulation
+  · Indicateurs observables : comportement visible en 10 mots max
+  · Niveau de langage : compréhensible par un étudiant stagiaire terrain
+  · Note /20 = C1 + C2 uniquement · C3 = volet complémentaire
+  · [HAIES] : C1 = lecture barème objectif · seuils A/B/C filles
+    ET garçons séparés · pas d'observable comportemental pour C1
+  · [GYM]   : Intégrer le coefficient difficulté dans C1 ·
+    simplifier D/C/B/A → 3 degrés ADP · noter lien C3 → essai 2
+  · [VOLLEY] : Mentionner "règles aménagées" comme cas particulier
+    du degré A de C2 · distinguer "assumés" (B) / "assurés" (C) en C3
+
+[6] FORMAT SORTIE
+Tableau · 5 colonnes :
+  Col 1 : Critère (intitulé + points)
+  Col 2 : Indicateurs observables (2–3 max)
+  Col 3 : Degré A — terme exact + seuil pts + comportement observable
+  Col 4 : Degré B — terme exact + seuil pts + comportement observable
+  Col 5 : Degré C — terme exact + seuil pts + comportement observable
++ Ligne bilan : Note /20 = C1 + C2 · calcul direct
+
+[7] SORTIE ATTENDUE
+Grille C1/C2 prête à soumettre au enseignant pour validation Bloc A
+Nom fichier : Grille_C1C2_[APS]_Equipe[N]_ADP2026
+
+[8] CRITIQUE À NOTER DANS SECTION F
+  · Les termes A/B/C sont-ils exactement ceux du référentiel ?
+  · Les indicateurs sont-ils observables sur le terrain en temps réel ?
+  · Le calcul /20 est-il lisible sans calculatrice ?
+  · Quelle itération a été la plus significative et pourquoi ?
+  · Qu'auriez-vous précisé différemment dans la composante [5] ?
+
+───────────────────────────────────────────
+PARAMÈTRES SPÉCIFIQUES PAR FAMILLE
+───────────────────────────────────────────
+
+P2 — HANDBALL (6 volets · sans C3)
+  C1 intitulé : "Efficacité collective dans le gain du match"
+  C2 intitulé : "Efficacité individuelle dans l'organisation du jeu"
+  C3          : ABSENT — ne pas l'inventer · signaler l'asymétrie
+  Contrainte+ : C2 = fusion PB + NP + DF · score unique /10
+  Seuils pts  : A = 0–4 · B = 5–7 · C = 8–10
+
+P2 — HAIES (3 volets · avec C3)
+  C1 intitulé : "Performance — meilleur temps plat + haies"
+  C1 SPÉCIAL  : Pas de terme qualitatif → construire :
+                A = "Performance faible"  · score 0–3/8 · barème
+                B = "Performance moyenne" · score 4–6/8 · barème
+                C = "Performance élevée"  · score 7–8/8 · barème
+  C1 barèmes  :
+    FILLES  : A > 27" · B 22"–20'5 · C ≤ 17'5
+    GARÇONS : A > 24'5 · B 20'2"–19" · C ≤ 16"
+  C2 intitulé : "Technique de franchissement"
+  C3 intitulé : "Efficacité du starter · chronométreur · observateur"
+
+P2 — GYMNASTIQUE (3 volets · avec C3)
+  C1 intitulé : "Qualité de l'enchaînement — conception et présentation"
+  C1 SPÉCIAL  : Coefficient difficulté D=0,7 · C=0,8 · B=0,9 · A=1
+                → Simplifier : Degré A = coeff D · B = coeff C
+                  Degré C = coeff B ou A (selon prestation)
+  C2 intitulé : "Qualité d'exécution"
+  C3 intitulé : "Efficacité dans le rôle de juge"
+  C3 SPÉCIAL  : Le jugement du degré B "sert la seconde prestation"
+                → Lien C3 → C1 à maintenir dans la grille
+
+P2 — VOLLEY-BALL (3 volets · avec C3)
+  C1 intitulé : "Efficacité collective dans le gain du match"
+  C2 intitulé : "Efficacité individuelle dans l'organisation collective"
+  C3 intitulé : "Efficacité dans le rôle d'arbitre et d'observateur"
+  C2 SPÉCIAL  : Degré A = "Joueur intermittent OU règles aménagées"
+                → Prévoir case "RA" sur la fiche terrain
+
+
+═══════════════════════════════════════════════════════════════════════════
+PROMPT P2-BIS — AUTO-CRITIQUE AVANT SOUMISSION AU enseignant
+Objectif : Faire vérifier la grille par l'IA avant le verrou enseignant
+Prérequis : P2 terminé · grille produite · équipe prête à soumettre
+═══════════════════════════════════════════════════════════════════════════
+
+CE PROMPT EST OPTIONNEL MAIS FORTEMENT RECOMMANDÉ
+Il permet à l'équipe de détecter les erreurs avant la validation enseignant
+et d'économiser un aller-retour.
+
+───────────────────────────────────────────
+[1] RÔLE IA
+Tu es un enseignant EPS expert et évaluateur critique de grilles
+d'évaluation en EPS. Tu dois être rigoureux et ne pas valider
+ce qui n'est pas conforme.
+
+[2] CONTEXTE
+APS   : [___]
+Grille produite par P2 : [COLLER LA GRILLE COMPLÈTE]
+Référentiel source     : [COLLER OU JOINDRE LE RÉFÉRENTIEL]
+
+[3] TÂCHE
+Vérifier la conformité de la grille produite selon 5 critères :
+  Critère 1 — Termes exacts : les degrés A/B/C utilisent-ils les
+              termes exacts du référentiel officiel ?
+  Critère 2 — Observabilité : les indicateurs sont-ils observables
+              en temps réel sur le terrain en moins de 10 secondes ?
+  Critère 3 — Calcul /20 : est-il lisible directement sans calculatrice ?
+  Critère 4 — Cohérence : la progression A → B → C est-elle logique
+              et correspond-elle bien à un apprentissage progressif ?
+  Critère 5 — Spécificités APS : les particularités identifiées en P1
+              sont-elles bien intégrées (barème genré · cotation ·
+              2 essais · case RA · absence C3) ?
+
+[4] RÉFÉRENTIEL
+Grille fournie ci-dessus + référentiel source.
+
+[5] CONTRAINTES
+  · Signaler précisément chaque non-conformité avec la ligne concernée
+  · Ne pas corriger toi-même — indiquer ce qui doit être corrigé
+    et pourquoi · l'équipe corrige
+  · Si la grille est conforme sur les 5 critères · le dire clairement
+
+[6] FORMAT SORTIE
+Tableau d'audit · 5 lignes (1 par critère) :
+  Col 1 : Critère vérifié
+  Col 2 : Statut (Conforme / Non conforme / Partiellement conforme)
+  Col 3 : Point exact à corriger (si applicable)
+  Col 4 : Suggestion de correction (piste · pas la solution)
+
+[7] SORTIE ATTENDUE
+Rapport d'auto-audit · guide la correction avant soumission enseignant
+Nom : Audit_Grille_[APS]_Equipe[N]_ADP2026
+
+[8] CRITIQUE À NOTER DANS SECTION F
+  · Quels critères étaient non conformes avant l'audit ?
+  · L'audit IA a-t-il détecté toutes les erreurs ?
+  · Y a-t-il eu des faux positifs (conformité signalée à tort) ?
+  · Que vaut le regard critique de l'IA sur son propre travail ?
+
+
+═══════════════════════════════════════════════════════════════════════════
+PROMPT P-DISC — PRÉPARATION À LA DISCUSSION COLLECTIVE BLOC A
+Objectif : Préparer la contribution de l'équipe pour la discussion
+Prérequis : P2 (+ P2-BIS si fait) terminés · 5 min avant la discussion
+═══════════════════════════════════════════════════════════════════════════
+
+CE PROMPT EST COURT · L'équipe le complète en 3 minutes sur PC
+
+───────────────────────────────────────────
+[1] RÔLE IA
+Tu es un enseignant EPS facilitateur de la réflexion collective.
+
+[2] CONTEXTE
+APS     : [___]
+Famille : [___]
+Grille produite : [COLLER LA GRILLE OU RÉSUMER EN 3 LIGNES]
+
+[3] TÂCHE
+Aider l'équipe à formuler sa contribution à la discussion collective
+Bloc A en 4 points précis · 2 min de parole maximum.
+
+[4] RÉFÉRENTIEL
+Grille produite par P2 + expérience de prompterie de l'équipe.
+
+[5] CONTRAINTES
+  · 4 points uniquement · 1 phrase par point
+  · Concret et spécifique · pas de généralités
+  · Centré sur les difficultés réelles rencontrées
+  · Mention obligatoire de ce qui a fonctionné
+
+[6] FORMAT SORTIE
+4 phrases courtes numérotées :
+  1. Notre APS et notre avancement : [___]
+  2. La contrainte principale rencontrée : [___]
+  3. Ce que l'IA a bien fait : [___]
+  4. Ce qu'on aurait fait différemment dans le prompt : [___]
+
+[7] SORTIE ATTENDUE
+Fiche de présentation · 4 lignes · à lire pendant la discussion
+(pas à déposer sur GitHub · usage oral uniquement)
+
+[8] CRITIQUE À NOTER DANS SECTION F
+  Après la discussion : ce que l'équipe a appris en écoutant les autres ·
+  et comment cela a modifié ou confirmé son approche du prompt P2.
+
+
+═══════════════════════════════════════════════════════════════════════════
+PROMPT P3 — CODES COMPORTEMENTAUX
+Objectif : Déduire les 9 ou 18 codes depuis la grille validée
+Prérequis : Bloc A validé par le enseignant (obligatoire)
+═══════════════════════════════════════════════════════════════════════════
+
+MODÈLE GÉNÉRIQUE (à compléter par l'équipe)
+───────────────────────────────────────────
+[1] RÔLE IA
+Tu es un enseignant EPS expert en construction d'outils d'observation
+terrain · spécialiste des codes comportementaux normés pour l'APS [APS].
+
+[2] CONTEXTE
+APS           : [___]
+Famille       : [___]
+Grille validée: [COLLER LA GRILLE C1/C2 VALIDÉE PAR LE enseignant]
+
+[3] TÂCHE
+À partir de la grille validée · déduire le système de codes
+comportementaux normés :
+  · [9 codes si 3 volets / 18 codes si 6 volets — préciser]
+  · 3 degrés par volet : A · B · C
+  · 1 code de 2 caractères max par degré par volet
+  · Libellé court : comportement observable en 10 mots max
+
+[4] RÉFÉRENTIEL
+Grille C1/C2 validée fournie ci-dessus.
+Termes exacts à reprendre dans les libellés :
+  [COLLER LES TERMES EXACTS IDENTIFIÉS EN P1]
+
+[5] CONTRAINTES
+  · 2 caractères MAXIMUM par code
+  · Fond coloré imposé :
+    Degré A = rouge  #FCEBEB · police Arial Bold ≥ 14pt
+    Degré B = amber  #FAEEDA · police Arial Bold ≥ 14pt
+    Degré C = vert   #EAF3DE · police Arial Bold ≥ 14pt
+  · Libellé : terme exact du référentiel en premier ·
+    puis observable terrain en complément
+  · Cohérence absolue grille → codes : le même degré B
+    dans la grille et dans le code doit décrire le même comportement
+
+[6] FORMAT SORTIE
+Tableau · 4 colonnes :
+  Col 1 : Volet (PB · NP · DF · JO · DO · GE · etc.)
+  Col 2 : Code + fond + libellé Degré A
+  Col 3 : Code + fond + libellé Degré B
+  Col 4 : Code + fond + libellé Degré C
+
+[7] SORTIE ATTENDUE
+Tableau des [9/18] codes · prêt à intégrer dans Bloc C de la fiche
+Nom : Codes_[APS]_Equipe[N]_ADP2026
+
+[8] CRITIQUE À NOTER DANS SECTION F
+  · Les codes sont-ils lisibles à 50 cm sur une fiche imprimée ?
+  · Les libellés correspondent-ils aux termes du référentiel ?
+  · La progression A → B → C est-elle cohérente avec la grille ?
+  · Combien d'itérations ? Quelle composante a été déterminante ?
+
+───────────────────────────────────────────
+CODES DE RÉFÉRENCE PAR FAMILLE
+(l'équipe vérifie que sa production correspond)
+───────────────────────────────────────────
+
+HANDBALL (18 codes · 6 volets)
+  PB : PB− · PB~ · PB+     NP : NP− · NP~ · NP+     DF : DF− · DF~ · DF+
+  JO : JD  · JR  · JP      DO : DI  · DM  · DO       GE : GE0 · GE1 · GE2
+
+HAIES (9 codes · 3 volets)
+  PE : PE− · PE~ · PE+     FR : FR− · FR~ · FR+     RO : RO− · RO~ · RO+
+  PE = Performance (lecture barème) · FR = Franchissement · RO = Rôles
+
+GYMNASTIQUE (9 codes · 3 volets)
+  EN : EN− · EN~ · EN+     EX : EX− · EX~ · EX+     JG : JG− · JG~ · JG+
+  EN = Enchaînement · EX = Exécution · JG = Juge
+
+VOLLEY-BALL (9 codes · 3 volets)
+  JC : JC− · JC~ · JC+     JI : JI− · JI~ · JI+     AR : AR− · AR~ · AR+
+  JC = Jeu collectif · JI = Jeu individuel · AR = Arbitre
+
+
+═══════════════════════════════════════════════════════════════════════════
+SYNTHÈSE — CHAÎNE DES PROMPTS ET DÉPENDANCES
+═══════════════════════════════════════════════════════════════════════════
+
+  P1  →  P2  →  P2-BIS (optionnel)
+          ↓
+     [DISCUSSION BLOC A — collectif · 20 min]
+          ↓
+     [VERROU enseignant — validation Bloc A · Classroom]
+          ↓
+         P3  →  P4 (fiche DOCX)  →  P5 (fiche HTML)
+          ↓
+         P6 (Application DI)
+          ↓
+         P7 (Application ES)
+
+  RÈGLE DE DÉPENDANCE :
+  Chaque prompt utilise la sortie du prompt précédent comme entrée [4].
+  Un prompt ne peut pas être lancé si le précédent n'est pas terminé.
+  P3 ne peut jamais être lancé sans validation enseignant du Bloc A.
+
+
+═══════════════════════════════════════════════════════════════════════════
+JOURNAL SECTION F — GRILLE DE TRAÇABILITÉ PAR PROMPT
+═══════════════════════════════════════════════════════════════════════════
+
+À remplir par l'équipe après CHAQUE prompt · dans le fichier
+Journal_TraceF_[APS]_Equipe[N]_ADP2026.docx
+
+  ┌──────────────┬──────────────────────────────────────────────────────┐
+  │ Prompt N°    │ P1 / P2 / P2-BIS / P-DISC / P3 / ...               │
+  ├──────────────┼──────────────────────────────────────────────────────┤
+  │ Tâche        │ Ce que l'équipe a demandé à l'IA                    │
+  ├──────────────┼──────────────────────────────────────────────────────┤
+  │ Nb itérat.   │ Nombre d'essais avant résultat acceptable           │
+  ├──────────────┼──────────────────────────────────────────────────────┤
+  │ Composante   │ Quelle composante [1–8] a été la plus déterminante  │
+  │ clé          │                                                      │
+  ├──────────────┼──────────────────────────────────────────────────────┤
+  │ IA a bien    │ Ce que l'IA a produit correctement                  │
+  │ fait         │                                                      │
+  ├──────────────┼──────────────────────────────────────────────────────┤
+  │ IA a mal     │ Ce qui a dû être corrigé ou rejeté                  │
+  │ fait         │                                                      │
+  ├──────────────┼──────────────────────────────────────────────────────┤
+  │ Ajustement   │ Ce qui a été modifié entre la 1re et la             │
+  │ décisif      │ dernière version du prompt                          │
+  ├──────────────┼──────────────────────────────────────────────────────┤
+  │ Après disc.  │ Ce que la discussion collective a apporté           │
+  │ (P-DISC)     │ (pour P2 uniquement)                                │
+  ├──────────────┼──────────────────────────────────────────────────────┤
+  │ Décision     │ Gardé tel quel / Modifié / Rejeté et refait         │
+  └──────────────┴──────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════
+FIN DES PROMPTS BLOC A — ADP 2026
+Avril 2026 · BOUARGANE × Claude · CRMEF Souss-Massa
+Prochaine étape : Prompts P4 (fiche DOCX) + P5 (fiche HTML)
+═══════════════════════════════════════════════════════════════════════════

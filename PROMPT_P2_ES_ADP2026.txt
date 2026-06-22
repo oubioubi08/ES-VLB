@@ -1,0 +1,185 @@
+═══════════════════════════════════════════════════════════════════════════
+PROMPT P2 — GRILLE D'ÉVALUATION v1 — PROJET SOMMATIF (ES)
+Produit : grille_v1_[APS]_[CODE].txt
+Prérequis : P1 terminé · analyse_ref_[APS]_[CODE].txt produit
+ADP 2026 — BOUARGANE · CRMEF Inezgane
+═══════════════════════════════════════════════════════════════════════════
+
+OBJECTIF
+─────────
+Construire la première version de la grille d'évaluation sommative.
+Note /20 obligatoire · critères sourcés · barème précis.
+Deux types de données selon le critère :
+  TYPE 1 → Niveau + fourchette de notes
+            L'observateur entoure le niveau ET écrit la valeur précise
+            Ex : B → 6/10 · pas seulement B
+  TYPE 2 → Valeur chiffrable directe (chrono · distance · fréquence)
+            Barème normé préparé à l'avance · lecture directe · pas de calcul
+            Format STRICT : 10"2 · 1'30" · 0,90
+
+
+FICHIERS À JOINDRE
+───────────────────
+  □ analyse_ref_[APS]_[CODE].txt    ← sortie P1
+  □ synthese_TD1_[APS]_[CODE].txt   ← Section 2 et 3
+
+
+VARIABLES À RENSEIGNER
+────────────────────────
+  [APS]    = ________________________________
+  [CODE]   = ________________________________
+  [Volume] = ________________________________ séances
+
+
+═══════════════════════════════════════════════════════════════════════════
+PROMPT — À COPIER ET ENVOYER À L'AGENT IA
+═══════════════════════════════════════════════════════════════════════════
+
+[1] RÔLE IA
+Tu es un enseignant EPS expert en évaluation sommative
+et en construction de grilles de notation terrain pour l'APS [VOLLEYBALL].
+Source méthodologique obligatoire :
+Planificateur de Cycle EPS v5 — BOUARGANE · CRMEF Inezgane · 2025/2026
+
+[2] CONTEXTE
+APS              : [VOLLEYBALL]
+Code projet      : [ COL3-G08]
+Volume cycle     : [12] séances
+Famille          : ES — Évaluation Sommative
+Objectif         : NOTER les élèves · note /20 obligatoire
+                   Certifier · classer · valider les acquis
+
+Logique de structuration des niveaux :
+Le niveau de contenu est déterminé par les CONDUITES OBSERVÉES.
+Le niveau scolaire indique le stade de progression attendu
+par tranches de 2 ans — il oriente sans contraindre.
+Lis le niveau de contenu identifié dans
+synthese_TD1_[APS]_[CODE].txt — Section 3.
+
+[3] TÂCHE
+À partir des fichiers joints · construire la grille sommative v1 :
+  · C1 = [intitulé exact APS] · pondération /10 ou /8
+  · C2 = [intitulé exact APS] · pondération /10 ou /8
+  · C3 = [intitulé exact si présent] · pondération /4 (bonus)
+  · Note /20 = C1 + C2 uniquement · C3 = volet complémentaire
+  · Pour chaque critère : identifier le TYPE DE DONNÉE
+    TYPE 1 → niveau + fourchette → entourer + valeur précise
+    TYPE 2 → valeur chiffrable → barème précis · format normé
+
+MODE 1 — ANALYSE FIDÈLE
+Construire la grille UNIQUEMENT depuis les fichiers joints.
+Tout contenu traçable dans les fichiers.
+
+MODE 2 — ENRICHISSEMENT DOCUMENTAIRE
+  [ENRICHISSEMENT — source externe]
+  Source : auteur · titre · institution · année
+  URL    : lien direct vérifiable
+  Apport : ce que cette source ajoute
+  Statut : à valider par l'équipe
+  [FIN ENRICHISSEMENT]
+
+[4] RÉFÉRENTIEL
+Source n°1 : Planificateur de Cycle EPS v5 — BOUARGANE
+Source n°2 : analyse_ref_[APS]_[CODE].txt joint
+Source n°3 : synthese_TD1_[APS]_[CODE].txt joint — Sections 2 et 3
+
+[5] CONTRAINTES
+  · Termes A/B/C EXACTEMENT ceux du référentiel — pas de reformulation
+  · Note /20 = C1 + C2 · calcul direct · sans calculatrice
+  · Identifier explicitement le TYPE pour chaque critère
+  · TYPE 1 : fournir la fourchette de notes par degré
+    Ex : A = 0 à 4 pts · B = 5 à 7 pts · C = 8 à 10 pts
+  · TYPE 2 : fournir le barème complet
+    Format STRICT : secondes → 10"2 · minutes → 1'30" · mètres → 0,90
+    Barème genre séparé si applicable (haies · course)
+  · [GYM]    : intégrer le coefficient difficulté D=0,7 · C=0,8 · B=0,9 · A=1
+               signaler le lien C3 juge → C1 essai 2
+  · [VOLLEY] : signaler la mention "règles aménagées" degré A de C2
+               distinguer "assumés" (B) / "assurés" (C) en C3
+  · [HDB]    : signaler l'absence de C3 · ne pas l'inventer
+  · Si écart stade/conduites détecté : intégrer dans la justification
+
+[6] FORMAT SORTIE — TEXTE BRUT UNIQUEMENT
+
+  ══════════════════════════════════════════════════════
+  GRILLE SOMMATIVE v1 — [APS] — [CODE]
+  ADP 2026 — CRMEF Inezgane — BOUARGANE
+  Type          : ES — Évaluation Sommative
+  Note maximale : /20 = C1 + C2
+  Niveau scolaire (arrière-plan) : [lu depuis synthese_TD1]
+  Niveau de contenu identifié   : [lu depuis synthese_TD1]
+  ══════════════════════════════════════════════════════
+
+  CRITÈRE C1 — [intitulé exact référentiel] — [N]/20
+  ────────────────────────────────────────────────────
+  Type de donnée : TYPE 1 (niveau+fourchette) · TYPE 2 (valeur chiffrable)
+
+  [Si TYPE 1 :]
+  DEGRÉ A — [terme exact] · [N] à [N] pts
+    Conduite observable : [comportement ≤ 10 mots]
+    Saisie terrain      : Entourer A + écrire valeur précise ex : _/[N]
+
+  DEGRÉ B — [terme exact] · [N] à [N] pts
+    Conduite observable : [comportement ≤ 10 mots]
+    Saisie terrain      : Entourer B + écrire valeur précise ex : _/[N]
+
+  DEGRÉ C — [terme exact] · [N] à [N] pts
+    Conduite observable : [comportement ≤ 10 mots]
+    Saisie terrain      : Entourer C + écrire valeur précise ex : _/[N]
+
+  [Si TYPE 2 :]
+  BARÈME [APS] — [GENRE si applicable]
+    DEGRÉ A : [valeur seuil] → [N] à [N] pts · saisie : chrono + lecture barème
+    DEGRÉ B : [valeur seuil] → [N] à [N] pts · saisie : chrono + lecture barème
+    DEGRÉ C : [valeur seuil] → [N] à [N] pts · saisie : chrono + lecture barème
+    Format  : [10"2 · 1'30" · 0,90]
+
+  [ENRICHISSEMENT — source externe si applicable]
+  [FIN ENRICHISSEMENT]
+
+  CRITÈRE C2 — [intitulé exact référentiel] — [N]/20
+  ────────────────────────────────────────────────────
+  [même structure que C1]
+
+  CRITÈRE C3 — [intitulé exact ou ABSENT] — /4 bonus
+  ────────────────────────────────────────────────────
+  [même structure ou : "C3 ABSENT dans ce référentiel — ne pas inventer"]
+
+  CALCUL NOTE /20
+  ────────────────
+  Note /20 = C1 + C2
+  C3 = volet bonus · ne compte pas dans le /20
+  Calcul direct · pas de calculatrice nécessaire
+
+  SPÉCIFICITÉS APS IDENTIFIÉES
+  ──────────────────────────────
+  [depuis analyse_ref_[APS]_[CODE].txt — Section Spécificités]
+
+  BILAN D'ENRICHISSEMENT
+  ───────────────────────
+  Compléments proposés : [N] · à valider : [N] · URLs non vérif. : [N]
+
+  SOURCES
+  ────────
+  Source n°1 : Planificateur de Cycle EPS v5 — BOUARGANE
+  Source n°2 : analyse_ref_[APS]_[CODE].txt
+  Source n°3 : synthese_TD1_[APS]_[CODE].txt
+
+  ══════════════════════════════════════════════════════
+  FIN — grille_v1_[APS]_[CODE].txt
+  À soumettre au formateur · validé avant remplissage Excel ES
+  ══════════════════════════════════════════════════════
+
+[7] SORTIE ATTENDUE
+Nom : grille_v1_[APS]_[CODE].txt
+
+[8] CRITIQUE À NOTER DANS SECTION F
+  · Les termes A/B/C sont-ils exactement ceux du référentiel ?
+  · Le type de donnée est-il correctement identifié pour chaque critère ?
+  · Le barème TYPE 2 est-il lisible directement sans calculatrice ?
+  · Le calcul /20 est-il simple et direct ?
+  · Combien d'itérations ? Quelle composante a été déterminante ?
+
+═══════════════════════════════════════════════════════════════════════════
+FIN — PROMPT P2 ES — ADP 2026
+═══════════════════════════════════════════════════════════════════════════

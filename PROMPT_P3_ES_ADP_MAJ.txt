@@ -1,0 +1,267 @@
+═══════════════════════════════════════════════════════════════════════════
+PROMPT P3 — FINALISATION DE LA GRILLE — PROJET SOMMATIF (ES)
+Produit : grille_[APS]_[CODE].txt · codes_[APS]_[CODE].txt
+Prérequis : grille_v1 validée · ADP2026_ES_[APS]_[CODE].xlsx rempli
+ADP 2026 — BOUARGANE · CRMEF Inezgane
+Version MAJ — Mai 2026
+═══════════════════════════════════════════════════════════════════════════
+
+OBJECTIF
+─────────
+Finaliser la grille sommative avec :
+  → Les codes comportementaux normés par critère (2 caractères max)
+  → La procédure de saisie terrain ES :
+      TYPE 1 → niveau + valeur précise dans la fourchette
+      TYPE 2 → chrono/mesure → lecture barème → note directe
+  → Le barème terrain intégré dans la grille finale
+  → La note /20 lisible sans calculatrice
+
+PRÉREQUIS BLOQUANTS — NE PAS LANCER SANS CES DEUX FICHIERS
+────────────────────────────────────────────────────────────
+  □ grille_v1_[APS]_[CODE].txt     ← validée par le formateur
+  □ ADP2026_ES_[APS]_[CODE].xlsx   ← rempli depuis la grille validée
+  Si l'un des deux est absent → ne pas lancer P3
+
+
+FICHIERS À JOINDRE
+───────────────────
+  □ grille_v1_[APS]_[CODE].txt         ← OBLIGATOIRE
+  □ ADP2026_ES_[APS]_[CODE].xlsx       ← OBLIGATOIRE
+    Feuilles utilisées :
+      OBSERVABLES+CODES  ← remplie par l'équipe depuis grille_v1
+      PROCÉDURE SAISIE   ← remplie par l'équipe
+      TEST SIMULATION    ← remplie par l'équipe
+  ⚠ Ne pas joindre un Excel vide — toutes les feuilles doivent être remplies
+
+
+VARIABLES À RENSEIGNER
+────────────────────────
+  [APS]         = ________________________________
+  [CODE]        = ________________________________
+  [FAMILLE_APS] = ________________________________
+                  Sports collectifs · Athlétisme · Gymnastique
+                  Sports de raquette · Sports de combat · Autre
+  [Volume]      = ________________________________ séances
+
+
+═══════════════════════════════════════════════════════════════════════════
+PROMPT — À COPIER ET ENVOYER À L'AGENT IA
+═══════════════════════════════════════════════════════════════════════════
+
+[1] RÔLE IA
+Tu es un enseignant EPS expert en évaluation sommative
+et en construction de grilles de notation terrain pour l'APS [Volleyball].
+Source méthodologique obligatoire :
+Planificateur de Cycle EPS v5 — BOUARGANE · CRMEF Inezgane · 2025/2026
+
+[2] CONTEXTE
+APS            : [Volleyball]
+Code projet    : [ COL3-G08]
+Famille APS    : [Sport de renvoi]
+Volume cycle   : [12] séances
+Famille projet : ES — Évaluation Sommative
+                 Note /20 = C1 + C2 · C3 = bonus si présent
+
+Logique de structuration des niveaux :
+Le niveau de contenu est déterminé par les CONDUITES OBSERVÉES.
+Le niveau scolaire indique le stade attendu par tranches de 2 ans.
+Lis le niveau de contenu dans l'en-tête de
+grille_v1_[APS]_[CODE].txt — ligne Niveau de contenu identifié.
+
+[3] TÂCHE — 4 ÉTAPES SÉQUENTIELLES
+
+ÉTAPE 1 — PRODUCTION DES CODES
+Depuis grille_v1 + fichier Excel ES joint :
+  · 1 code comportemental par degré par critère
+  · Format : 2 caractères MAX · lisible à 50cm sur fiche imprimée
+  · Pour TYPE 1 (fourchette) : code + plage de notes
+    Ex : A → XX− · 0 à 4 pts
+         B → XX~ · 5 à 7 pts
+         C → XX+ · 8 à 10 pts
+  · Pour TYPE 2 (valeur chiffrable) : format strict
+    Secondes → 10"2 · Minutes → 1'30" · Mètres → 0,90
+  · Convention couleurs obligatoire :
+    Degré A → fond #FCEBEB · Arial Bold ≥ 14pt
+    Degré B → fond #FAEEDA · Arial Bold ≥ 14pt
+    Degré C → fond #EAF3DE · Arial Bold ≥ 14pt
+
+ÉTAPE 2 — ⚑ PAUSE INTERACTIVE ORIENTÉE
+Après avoir produit le tableau des codes · STOP.
+Présenter la recommandation de saisie selon [FAMILLE_APS] :
+
+  [Si Sports collectifs :]
+  "Pour votre APS ([APS]) · nous recommandons :
+   → ENTOURER le niveau (A · B · C) [TYPE 1]
+   → puis ÉCRIRE la valeur précise dans la fourchette
+     Ex : B → écrire 6/10 · pas seulement B
+   Durée maximale recommandée : 3 secondes par élève.
+   Ordre de saisie : séquentiel élève 1 → élève N.
+   Confirmez-vous ou signalez une contrainte terrain ?"
+
+  [Si Athlétisme :]
+  "Pour votre APS ([APS]) · nous recommandons :
+   → ÉCRIRE le chrono au format STRICT :
+     10"2 pour les secondes · 1'30" pour les minutes
+     0,90 pour les mètres
+   → Le barème sur votre fiche vous donne la note directement
+     Pas de calcul mental · lecture directe
+   Durée maximale : 5 secondes par passage.
+   Ordre : ordre de passage.
+   Confirmez-vous ou signalez une contrainte terrain ?"
+
+  [Si Gymnastique :]
+  "Pour votre APS ([APS]) · nous recommandons :
+   → ENTOURER le niveau (A · B · C) [TYPE 1]
+   → ÉCRIRE la valeur précise dans la fourchette
+   → Pour le coefficient difficulté :
+     Lire le coeff dans la colonne D de la fiche
+     Appliquer automatiquement depuis le tableau Excel
+   Durée maximale : 5 secondes par passage.
+   Confirmez-vous ou signalez une contrainte terrain ?"
+
+  [Si Sports de raquette :]
+  "Pour votre APS ([APS]) · nous recommandons :
+   → ENTOURER le niveau + ÉCRIRE la valeur après chaque échange clé
+   Durée maximale : 3 secondes par observation.
+   Confirmez-vous ou signalez une contrainte terrain ?"
+
+  [Si Sports de combat :]
+  "Pour votre APS ([APS]) · nous recommandons :
+   → ENTOURER le niveau + ÉCRIRE la valeur après chaque assaut
+   Durée maximale : 3 secondes par élève.
+   Confirmez-vous ou signalez une contrainte terrain ?"
+
+ÉTAPE 3 — INTÉGRATION DES CONFIRMATIONS
+Après réponse de l'équipe :
+  · Intégrer les confirmations ou ajustements
+  · Produire la procédure normée finalisée
+  · Vérifier que la note /20 est lisible sans calculatrice
+
+ÉTAPE 4 — PRODUCTION GRILLE FINALE
+Assembler grille v1 + codes + barème terrain + procédure normée
+en grille_[APS]_[CODE].txt version finale
+
+[4] RÉFÉRENTIEL
+Source n°1 : Planificateur de Cycle EPS v5 — BOUARGANE
+Source n°2 : grille_v1_[APS]_[CODE].txt joint
+Source n°3 : ADP2026_ES_[APS]_[CODE].xlsx joint
+             feuilles OBSERVABLES+CODES · PROCÉDURE SAISIE · TEST SIMULATION
+
+[5] CONTRAINTES
+  · Codes : 2 caractères MAX · pas de symboles spéciaux
+  · TYPE 1 : fourchette affichée sur la fiche · valeur précise obligatoire
+  · TYPE 2 : format temps STRICT · barème lu directement · pas de calcul
+  · Note /20 = C1 + C2 · calcul direct · sans calculatrice
+  · [GYM] : coeff difficulté intégré dans barème Excel
+  · [HDB] : signaler l'absence de C3 · ne pas l'inventer
+  · La pause interactive est orientée · pas libre
+    L'équipe confirme ou signale une contrainte · pas un choix ouvert
+  · Ne pas confondre niveau scolaire et niveau de contenu
+
+[6] FORMAT SORTIE — TEXTE BRUT UNIQUEMENT
+
+  ══════════════════════════════════════════════════════════════
+  GRILLE SOMMATIVE FINALE — [APS] — [CODE]
+  ADP 2026 — CRMEF Inezgane — BOUARGANE
+  Type : ES — Évaluation Sommative · Note /20 = C1 + C2
+  ══════════════════════════════════════════════════════════════
+
+  SECTION 1 — TABLEAU DES CODES ET FOURCHETTES
+  ───────────────────────────────────────────────
+  Convention couleurs :
+    Degré A → fond #FCEBEB · Arial Bold ≥ 14pt
+    Degré B → fond #FAEEDA · Arial Bold ≥ 14pt
+    Degré C → fond #EAF3DE · Arial Bold ≥ 14pt
+
+  CRITÈRE C1 — [intitulé] — [N]/20
+  Type : [TYPE 1 · TYPE 2]
+
+  [Si TYPE 1 :]
+    Degré A : [CODE] · [terme exact] · [N] à [N] pts
+              → Saisie : Entourer A + écrire _/[N]
+    Degré B : [CODE] · [terme exact] · [N] à [N] pts
+              → Saisie : Entourer B + écrire _/[N]
+    Degré C : [CODE] · [terme exact] · [N] à [N] pts
+              → Saisie : Entourer C + écrire _/[N]
+
+  [Si TYPE 2 :]
+    Format saisie : [10"2 · 1'30" · 0,90]
+    BARÈME [GENRE si applicable] :
+      Degré A : [seuil] → [N] à [N] pts · lire barème → note
+      Degré B : [seuil] → [N] à [N] pts · lire barème → note
+      Degré C : [seuil] → [N] à [N] pts · lire barème → note
+
+  CRITÈRE C2 — [intitulé] — [N]/20
+  [même structure]
+
+  CRITÈRE C3 — [intitulé ou ABSENT] — /4 bonus
+  [même structure ou : "C3 ABSENT dans ce référentiel"]
+
+  CALCUL NOTE /20
+  ────────────────
+  Note /20 = C1 + C2
+  Lecture directe depuis barème · pas de calculatrice
+
+  ⚑ PAUSE INTERACTIVE — PROCÉDURE DE SAISIE TERRAIN
+  ────────────────────────────────────────────────────
+  [Recommandation selon [FAMILLE_APS] — attendre confirmation]
+
+  SECTION 2 — PROCÉDURE DE SAISIE TERRAIN NORMÉE
+  ─────────────────────────────────────────────────
+  [Après confirmation de l'équipe]
+
+  Famille APS      : [FAMILLE_APS]
+  TYPE 1 — Fourchette
+    Geste normé    : Entourer niveau + écrire valeur précise
+    Durée max      : [N] secondes par élève
+  TYPE 2 — Valeur chiffrable
+    Format STRICT  : 10"2 · 1'30" · 0,90
+    Geste normé    : Écrire la valeur · lire barème sur fiche
+    Durée max      : [N] secondes par passage
+  Ordre saisie     : [séquentiel · ordre de passage]
+  Distance obs.    : [N] à [N] mètres
+  Doute            : case vide + "?" · jamais inventer
+  Confirmé par     : l'équipe le [date]
+  Contrainte       : [signalée ou "aucune"]
+
+  SECTION 3 — RÈGLES TRANSVERSALES
+  ──────────────────────────────────
+  RÈGLE 1 : 1 seul code par case · jamais 2
+  RÈGLE 2 : Doute → case vide + "?" · jamais inventer
+  RÈGLE 3 : TYPE 1 → niveau ET valeur précise · pas seulement le niveau
+  RÈGLE 4 : TYPE 2 → format strict 10"2 · 1'30" · 0,90 · virgule obligatoire
+  RÈGLE 5 : Stylo noir uniquement · pas de crayon
+  RÈGLE 6 : Note /20 = C1 + C2 · calcul direct · jamais de calculatrice
+  RÈGLE 7 : Tester avant séance → 3 élèves fictifs · vérifier calcul
+
+  SECTION 4 — GRILLE COMPLÈTE ASSEMBLÉE
+  ───────────────────────────────────────
+  [Grille v1 + codes + barème + procédure intégrés]
+
+  SOURCES
+  ────────
+  Source n°1 : Planificateur de Cycle EPS v5 — BOUARGANE
+  Source n°2 : grille_v1_[APS]_[CODE].txt
+  Source n°3 : ADP2026_ES_[APS]_[CODE].xlsx
+
+  ══════════════════════════════════════════════════════════════
+  FIN — grille_[APS]_[CODE].txt · VERSION FINALE
+  À déposer sur GitHub · À joindre à la clôture TD1
+  ══════════════════════════════════════════════════════════════
+
+[7] FICHIERS PRODUITS
+  grille_[APS]_[CODE].txt  ← grille complète · version finale
+  codes_[APS]_[CODE].txt   ← tableau codes seul · pour outil HTML
+
+[8] CRITIQUE À NOTER DANS SECTION F
+  · Les codes sont-ils lisibles à 50cm sur fiche imprimée ?
+  · TYPE 1 : la valeur précise est-elle bien requise (pas seulement le niveau) ?
+  · TYPE 2 : le barème est-il lu directement sans calcul mental ?
+  · La note /20 est-elle lisible sans calculatrice ?
+  · La pause interactive a-t-elle bien eu lieu ?
+  · Contrainte terrain signalée : [OUI/NON]
+  · Combien d'itérations ? Quelle composante [1-8] ?
+
+═══════════════════════════════════════════════════════════════════════════
+FIN — PROMPT P3 ES — ADP 2026
+═══════════════════════════════════════════════════════════════════════════

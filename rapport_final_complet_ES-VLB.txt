@@ -1,0 +1,942 @@
+====================================================================
+RAPPORT FINAL DE PROJET
+OUTIL ES-VLB — AIDE A LA DECISION PEDAGOGIQUE EPS / VOLLEYBALL
+COL3-G08 — CRMEF INEZGANE — ADP 2026 — METHODOLOGIE BOUARGANE
+====================================================================
+
+Document recapitulatif complet du projet, couvrant l'ensemble des
+sessions de travail, les decisions techniques et pedagogiques prises,
+les versions successives de l'outil, les bugs identifies et corriges,
+et l'etat final livre.
+
+Format : texte brut, redige a partir des echanges et des livrables
+reellement produits au cours du projet — aucune information n'est
+inventee ; les points laisses en suspens sont signales comme tels.
+
+
+====================================================================
+SOMMAIRE
+====================================================================
+
+1.  Contexte et objectifs du projet
+2.  Cadre reglementaire et pedagogique de reference
+3.  Chronologie generale du projet (5 phases)
+4.  Phase 1 — Analyse du referentiel et premieres grilles (Word)
+5.  Phase 2 — Construction iterative des grilles d'evaluation
+6.  Phase 3 — Documents TD1/TD2 et premier outil HTML
+7.  Phase 4 — Fusion des deux pages, OCR, templates, niveaux scolaires
+8.  Phase 5 — Finalisation : Conceptuel, axes TD1, restylage, bugs
+9.  Phase 6 (session courante) — Outil Premium : navigation, modales,
+    page d'accueil, guide d'aide
+10. Architecture technique detaillee de l'outil final
+11. Inventaire complet des fonctionnalites livrees
+12. Inventaire des bugs identifies et corriges
+13. Decisions structurantes et arbitrages effectues
+14. Methode de verification et de test utilisee
+15. Points laisses en suspens ou explicitement exclus
+16. Fichiers livres au cours du projet
+17. Conclusion et recommandations
+
+
+====================================================================
+1. CONTEXTE ET OBJECTIFS DU PROJET
+====================================================================
+
+Le projet vise a produire un outil numerique destine a un enseignant
+d'Education Physique et Sportive (EPS), pour la discipline Volleyball,
+dans le cadre de l'epreuve ES-VLB (COL3-G08) prevue a l'ADP 2026,
+suivant la methodologie BOUARGANE et le referentiel officiel du
+Diplome National du Brevet (DNB), Niveau 2, tel que defini par le
+Bulletin Officiel special n0 5 du 19/07/2012.
+
+L'objectif initial etait de produire des documents d'analyse et des
+grilles d'evaluation papier (format Word), avant d'evoluer vers un
+outil numerique interactif complet, fonctionnant de maniere autonome
+dans un navigateur, sans dependance a un serveur ou a une connexion
+internet permanente.
+
+L'outil final poursuit trois objectifs complementaires :
+- aider l'enseignant a diagnostiquer le niveau reel d'une classe a
+  partir d'observations de terrain ;
+- l'aider a identifier les axes de travail prioritaires et a generer
+  une planification de cycle adaptee aux lacunes constatees ;
+- lui fournir une grille de notation detaillee, par equipe et par
+  eleve, conforme au bareme officiel mais entierement personnalisable.
+
+A aucun moment l'outil ne se substitue a la decision pedagogique de
+l'enseignant : il structure l'information et propose des calculs et
+des recommandations, mais la decision finale reste humaine.
+
+
+====================================================================
+2. CADRE REGLEMENTAIRE ET PEDAGOGIQUE DE REFERENCE
+====================================================================
+
+Le referentiel de base est celui du DNB Volleyball Niveau 2 (BO
+special n0 5, 19/07/2012), structure historiquement autour de 3
+criteres :
+- C1 — Efficacite collective
+- C2 — Efficacite individuelle
+- C3 — A l'origine "Arbitre et observateur"
+
+Au cours de la Phase 1 du projet, le critere C3 a ete entierement
+redefini a la demande de l'utilisateur pour devenir un "Critere
+Comportemental", abandonnant la dimension arbitrage/observation au
+profit d'une evaluation des comportements observables de l'eleve sur
+le terrain (engagement, respect des partenaires, gestion de l'echec,
+etc.), avec 3 degres :
+- Degre A — "Rôles assurés" (l'eleve assume seul ses roles), points
+  eleves, code RA ;
+- Degre B — "Rôles assumés" (l'eleve assume ses roles avec une aide
+  ponctuelle), points intermediaires, code RB ;
+- Degre C — "Rôles insuffisamment assurés", points faibles, code RC.
+
+Une distinction terminologique critique a ete signalee et conservee
+tout au long du projet : "assumes" (avec aide exterieure) est
+different d'"assures" (en autonomie complete) — cette nuance impacte
+directement le degre attribue et a fait l'objet d'une regle
+transversale dediee (R8) dans les grilles papier.
+
+Par la suite, une rubrique "Conceptuel" a ete ajoutee a la demande de
+l'utilisateur : notation facultative, non bornee par une plage de
+points imposee, comptabilisee sur 3 points, evaluant la maitrise des
+regles, le vocabulaire tactique, le projet de jeu et la lecture du jeu
+par l'eleve. Cette rubrique, ainsi que le Critere Comportemental (C3),
+sont traites comme des bonus facultatifs : ils n'entrent pas dans le
+calcul de la note finale sur 20, qui reste basee sur C1+C2 uniquement
+dans le modele "Grille Terrain", mais sont integres au calcul dans le
+modele "Grille Officielle" (cf. section 11).
+
+Deux referentiels d'axes prioritaires de travail ont ete integres au
+fil du projet :
+- un referentiel initial (designe TD2 dans le code), identifiant la
+  lacune dominante N1-2 (differenciation des roles selon l'ordre
+  d'intervention) comme prerequis cle, avec un graphe de dependances
+  reliant 4 capacites de Niveau 2 (N2-1, N2-4, N2-7, N2-8) a leurs
+  prerequis de Niveau 1, N2-8 etant identifie comme point de
+  convergence de deux branches du graphe ;
+- un referentiel plus recent fourni en cours de projet (designe TD1
+  dans le code), identifiant cette fois la lacune dominante N1-1
+  (lecture de balle en situation favorable/defavorable) comme
+  prioritaire, avec 3 axes redefinis en consequence.
+
+Les deux referentiels ont ete conserves simultanement dans l'outil
+final (et non l'un remplace par l'autre), avec un selecteur permettant
+a l'enseignant de choisir lequel appliquer.
+
+
+====================================================================
+3. CHRONOLOGIE GENERALE DU PROJET (5 PHASES + SESSION COURANTE)
+====================================================================
+
+Le projet s'est deroule sur plusieurs sessions de travail distinctes,
+du 11 au 18 juin 2026 :
+
+- Phase 1 (11-12 juin) : analyse du referentiel officiel, redefinition
+  du critere C3, premiers documents Word de synthese.
+- Phase 2 (13 juin) : construction iterative de plusieurs versions de
+  grilles d'evaluation Word, integration progressive du Conceptuel,
+  premier memo de synthese.
+- Phase 3 (14 juin, matin) : documents TD1/TD2 sur le referentiel
+  d'axes prioritaires, puis premier livrable HTML interactif
+  (`outil_v0_VLY_COL3-G08.html`), et un second outil HTML de grille
+  interactive par equipes.
+- Phase 4 (14 juin, apres-midi/soir) : fusion des deux outils HTML en
+  une seule application a deux pages, integration puis remplacement
+  de la solution d'OCR (Claude Vision -> Tesseract.js), ajout de
+  templates de grille multiples et du selecteur de niveau scolaire.
+- Phase 5 (14-15 juin) : finalisation de la colonne Conceptuel,
+  integration du second referentiel d'axes (TD1), correction de
+  plusieurs problemes d'import CSV, restylage visuel de plusieurs
+  ecrans, premiere page d'analyse plein ecran.
+- Session courante (16-18 juin) : transition vers une variante
+  "Premium" du fichier (renommages successifs : FIXED, puis v4),
+  correction de bugs critiques (notes affichees incorrectement,
+  navigation bloquee entre etapes), ajout de fonctionnalites
+  manquantes (suppression d'eleve/equipe, saisie rapide par numero,
+  persistance complete), remplacement systeme des confirmations
+  natives du navigateur, integration d'une nouvelle identite visuelle
+  (page d'accueil ES-VLB) et d'un guide d'aide interactif.
+
+Les sections suivantes detaillent chaque phase.
+
+
+====================================================================
+4. PHASE 1 — ANALYSE DU REFERENTIEL ET PREMIERES GRILLES (WORD)
+====================================================================
+
+Cette phase a debute par la fourniture de captures d'ecran du
+referentiel officiel et d'un document d'analyse existant
+(`Analyse_Ref_VLY_Equipe_ADP2026.docx`). Les premiers echanges ont
+porte sur l'enrichissement et la structuration de ce document,
+debouchant sur une synthese complete intitulee "Analyse du Referentiel
+DNB Volley-Ball Niveau 2", couvrant la competence attendue (citation
+exacte du BO), les 3 criteres avec leurs degres et baremes de points,
+le format de jeu (2 contre 2) et les populations concernees
+(1AC/2AC/3AC).
+
+Le changement majeur de cette phase a ete la redefinition complete du
+critere C3, initialement "Arbitre et observateur", en "Critere
+Comportemental", avec demande explicite de definir, pour chaque degre
+(A/B/C), des caracteristiques specifiques et des comportements
+observables servant de base a l'attribution des points. Cette
+redefinition a introduit la distinction "assures" vs "assumes"
+mentionnee en section 2.
+
+
+====================================================================
+5. PHASE 2 — CONSTRUCTION ITERATIVE DES GRILLES D'EVALUATION
+====================================================================
+
+Cette phase a consiste en une succession de versions de la grille
+d'evaluation, chacune affinant la precedente sur la base de retours
+precis :
+
+- Une premiere grille restructuree en 5 sections a ete produite,
+  inspiree d'un modele fourni par l'utilisateur, avec un systeme de
+  codes couleur par critere (rouge=Faible/jaune=Moyen/vert=Bon) — un
+  sens de codification inverse (A=Debutant/C=Maitrise) a ete repere et
+  signale explicitement comme point de vigilance pour eviter toute
+  confusion ulterieure.
+- Sur demande, le critere C3 original (Roles assures/assumes) a ete
+  restaure tel qu'il existait avant une modification intermediaire,
+  avec ajout d'une regle transversale (R8) rappelant la distinction
+  assumes/assures.
+- Une version centree exclusivement sur le C3 comportemental a ensuite
+  ete produite, avec une grille detaillee en 3 tableaux (un par
+  degre), chacun precisant 5 caracteristiques et 6 comportements
+  observables, accompagnee d'une fiche de saisie terrain de 20 lignes.
+- Ces elements ont ensuite ete fusionnes en une grille finale
+  integrant C1, C2 (inchanges) et le nouveau C3 Comportemental (codes
+  CB+/CB~/CB-), avec suppression definitive de l'ancien critere
+  "Arbitre et observateur".
+- Une version "terrain" simplifiee a ensuite ete demandee,
+  reproduisant la mise en page d'un modele fourni par l'utilisateur :
+  bandeau d'identite (enseignant/classe/date), bareme de reference
+  compact, grille de 40 places reparties en 10 equipes avec scores a
+  entourer au stylo, et aide-memoire en bas de page.
+- La rubrique Conceptuel a ete ajoutee a ce stade comme une 4e ligne
+  du bareme de reference et une colonne supplementaire de la grille
+  eleves, explicitement non bornee par une plage de points imposee et
+  facultative.
+- Un memo de synthese au format A4 condense (7 blocs) a ete produit
+  pour la documentation TD1, suivi d'un document de correspondance
+  entre la nomenclature Eduscol (Niveau 1/Niveau 2) et les codes de la
+  grille (CA/IC = Degre A, CB/IB = Degre B, CC/IA = Degre C cible),
+  avec identification de la lacune dominante N1-2 comme prerequis
+  central.
+
+
+====================================================================
+6. PHASE 3 — DOCUMENTS TD1/TD2 ET PREMIER OUTIL HTML
+====================================================================
+
+Cette phase a ete consacree a l'analyse approfondie du referentiel
+d'axes prioritaires, avec production d'un document TD1 de 4 pages
+(ecart stade/conduites encadre, correspondance Eduscol/Grille en 3
+blocs colores, 8 fiches-capacites avec prerequis et statut, 4 cartes
+"Conduite-type" avec hypotheses explicitement signalees comme telles
+en l'absence de donnees reelles a ce stade), puis d'un graphe de
+dependances reliant les capacites de Niveau 2 a leurs prerequis de
+Niveau 1, avec identification de N2-8 comme point de convergence de
+deux branches, et proposition de 3 axes de travail.
+
+Le premier livrable HTML du projet, `outil_v0_VLY_COL3-G08.html`, a
+ete produit a la suite de ces analyses : un outil en JavaScript pur,
+fonctionnant hors-ligne, responsive a partir de 360px de largeur
+d'ecran. A ce stade, OBS-01 correspondait a C1 (/7), OBS-02 a C2 (/8)
+et OBS-03 au critere comportemental C3 (/4, codes CB-/CB~/CB+), avec
+des seuils de classification fixes (A si note/10 <= 4, B si comprise
+entre 4 et 7, C si superieure a 7). Cinq tests de validation ont ete
+executes et ont tous reussi (profils A/B/C, distribution des seances,
+syntaxe).
+
+Un second outil HTML, une grille interactive complete par equipes
+(`grille_interactive_VLB_ES-VLB.html`), a egalement ete produit en
+parallele, avec un tableau de 40 eleves repartis en 10 equipes, un
+systeme de "puces" cliquables par critere pour la selection rapide
+d'une note, une synchronisation bidirectionnelle entre le bareme
+editable et les selections deja faites, et des fonctions d'ajout
+d'eleve, de reinitialisation par ligne et d'impression/export PDF.
+
+Un systeme d'import de liste d'eleves a ensuite ete ajoute a ce second
+outil, avec deux options : un onglet "Scanner" (utilisant initialement
+l'API Claude Vision) et un onglet "Importer fichier" (CSV/TSV/TXT,
+avec detection automatique du separateur et preservation correcte des
+noms en arabe et en amazigh, y compris en ecriture bidirectionnelle).
+
+
+====================================================================
+7. PHASE 4 — FUSION, OCR, TEMPLATES, NIVEAUX SCOLAIRES
+====================================================================
+
+Cette phase, la plus dense techniquement, a couvert plusieurs
+chantiers paralleles :
+
+7.1 Gestion des equipes
+Finalisation de l'ajout/suppression d'equipe avec renumerotation
+automatique du type "EQUIPE N" tout en preservant les noms personnalises
+deja attribues (par exemple "Les Aigles"), et reorganisation des
+equipes par glisser-deposer.
+
+7.2 Simplification puis abandon de l'OCR avance
+A la demande de l'utilisateur, le systeme d'import par photo a ete
+simplifie pour ne plus faire que remplir automatiquement les noms
+detectes dans la grille, sans aucun calcul ou traitement
+supplementaire associe. Une option de "saisie rapide par numero" avait
+ete retiree a ce stade car jugee contradictoire avec cette
+simplification — elle sera reintroduite plus tard, dans la session
+courante, sur demande explicite (cf. section 9).
+
+7.3 Fusion des deux outils HTML en une seule application
+Les deux outils developpes en Phase 3 ont ete fusionnes en une seule
+application a deux pages, navigables via des boutons de bascule
+(`.page-nav-btn`) controlant la visibilite (`.app-page.visible`). Le
+code de la seconde page a ete encapsule dans une fonction immediatement
+invoquee (IIFE) afin d'eviter toute collision de variables globales
+avec le code de la premiere page. Une collision d'identifiant HTML a
+neanmoins ete detectee et corrigee (`btnPrint` renomme en
+`btnPrintGrille` sur la seconde page). Les tests effectues a l'issue de
+cette fusion ont confirme l'integrite des deux logiques metier
+(premiere page : test T3 donnant le profil C/C/C attendu, distribution
+des seances conforme ; seconde page : total du bareme egal a 22,
+conversion 22/22 -> 20/20 correcte, structure de 10 equipes/40 eleves
+preservee).
+
+7.4 Remplacement de l'OCR Claude Vision par Tesseract.js
+Le systeme d'OCR base sur l'API Claude Vision presentait un probleme
+fondamental sur un hebergement statique de type GitHub Pages : sans
+cle API, toute requete echouait avec le message "Analyse automatique
+indisponible". Apres explication detaillee de ce probleme
+(l'application, une fois deployee hors de l'environnement Claude.ai,
+n'a plus aucun moyen de s'authentifier auprès de l'API), plusieurs
+alternatives ont ete presentees, et Tesseract.js (bibliotheque
+d'OCR fonctionnant entierement cote navigateur, sans cle API) a ete
+retenue. Le parseur associe a ete affine pour reconnaitre a la fois
+l'ordre "numero puis nom" (format francais standard) et l'ordre
+"nom puis numero" (frequent en ecriture arabe en raison du sens de
+lecture droite-a-gauche), avec gestion de plusieurs separateurs.
+
+7.5 Templates de grille multiples
+Un second modele de grille, designe "Grille VLB — Officielle", a ete
+ajoute en parallele du modele "Terrain" deja existant, avec un menu
+deroulant permettant de basculer entre les deux. Chaque template
+dispose de sa propre cle de sauvegarde locale (`_terrain_v1` et
+`_officielle_v1`), garantissant une independance totale des donnees
+saisies dans l'un par rapport a l'autre. La formule de calcul de la
+note sur 20 differe selon le template actif : dans le modele Terrain,
+le Critere Comportemental et le Conceptuel restent des bonus hors
+calcul ; dans le modele Officiel, ils sont integres au total.
+
+7.6 Selecteur de niveau scolaire avec bareme dynamique
+Un menu deroulant "Niveau scolaire (bareme de notation)" a ete ajoute,
+remplacant un simple champ texte sans effet sur les calculs. Ce
+selecteur propose 3 options correspondant a un tableau de bareme
+officiel fourni par l'utilisateur : 1AC (OBS-01/6, OBS-02/8, OBS-03/3),
+2AC (OBS-01/6, OBS-02/7, OBS-03/4, option par defaut), et 3AC
+(OBS-01/6, OBS-02/6, OBS-03/5). Changer de niveau recalcule
+immediatement les bornes de saisie autorisees, les libelles d'en-tete
+des colonnes, et la conversion des notes brutes en notes sur 10 servant
+a la classification A/B/C — sans jamais effacer les valeurs deja
+saisies par l'enseignant.
+
+
+====================================================================
+8. PHASE 5 — FINALISATION : CONCEPTUEL, AXES TD1, RESTYLAGE, BUGS
+====================================================================
+
+8.1 Transcription de donnees de terrain reelles
+A partir de photographies de grilles papier remplies a la main
+(valeurs entourees au stylo), plusieurs lots d'eleves ont ete transcrits
+avec precision apres inspection visuelle zoomee : un premier lot de 5
+eleves (Equipes 1-2 : Nkeli, Hicham, Mohamed, Hamza, Marouane), puis un
+second lot de 9 eleves (Equipes 3-4 : Ismail, Marouane, Hicham, Omar,
+Mohamed, Mostapha, Ali, Ibrahim, Khalid). Plusieurs anomalies ont ete
+explicitement signalees plutot que devinees : deux cellules sans cercle
+visible (Hicham OBS-02, Ali Comportemental) laissees vides dans les
+fichiers generes ; une tache d'encre sur la valeur d'Ibrahim (valeur 6
+retenue par deduction, mais signalee comme telle) ; et a plusieurs
+reprises, des valeurs de Conceptuel superieures au maximum theorique de
+3 points (Mohamed=4, puis Ali=4,5 dans un lot distinct), signalees
+sans correction automatique arbitraire.
+
+8.2 Ajout de la colonne Conceptuel au premier outil
+La colonne Conceptuel (/3, facultative) a ete ajoutee au formulaire de
+saisie de la premiere page de l'outil, avec detection de cette colonne
+dans les imports CSV. Un bug latent a ete identifie et corrige a cette
+occasion : le code de calcul lisait un champ nomme `e.conceptuel`
+tandis que le formulaire produisait un champ nomme `e.concept` — les
+deux cles n'etaient pas synchronisees, ce qui empechait la valeur
+Conceptuel d'etre correctement prise en compte malgre une saisie
+visuellement correcte.
+
+8.3 Page "Analyse de la classe" en plein ecran
+Une nouvelle vue plein ecran, accessible apres le calcul d'analyse, a
+ete ajoutee : tableau trie par rang, avec colonnes numero/prenom/
+OBS-01/02/03/Moyenne sur 10/note sur 20/Profil (sous forme de badge
+circulaire colore)/Profil detaille/Lacune/Axe prioritaire, plus des
+boutons d'export PDF et CSV et un bouton de retour. Un conflit de
+convention a ete identifie a ce stade : le modele visuel fourni par
+l'utilisateur utilisait un systeme de couleurs A/B/C invense (A=bon/
+vert) par rapport a la convention deja en usage dans l'outil
+(A=faible/rouge). La decision prise, faute de preference exprimee par
+l'utilisateur a ce moment, a ete de conserver le systeme deja existant
+et de n'adapter que la presentation visuelle, evitant ainsi une
+incoherence avec le reste de l'application. Cette decision a ete
+reconfirmee plusieurs fois au cours du projet face a des maquettes
+ulterieures presentant la meme convention inversee.
+
+8.4 Fonction "Analyser" sur la grille d'evaluation (seconde page)
+Une fonctionnalite d'analyse a ete ajoutee egalement sur la seconde
+page de l'outil (la grille par equipes), avec un point de clarification
+important : la demande initiale evoquait une grille a "criteres
+dynamiques" generalisables, alors que le referentiel officiel impose
+exactement 3 criteres fixes (plus le Conceptuel facultatif) — il a ete
+clarifie qu'aucune generalisation n'etait necessaire, mais que les
+libelles et valeurs maximales affiches dans l'analyse devaient malgre
+tout etre lus dynamiquement depuis le bareme editable, de sorte qu'un
+renommage de critere par l'enseignant se reflete immediatement dans
+l'analyse sans necessiter de modification du code.
+
+8.5 Second referentiel d'axes prioritaires (TD1)
+Comme detaille en section 2, un second referentiel d'axes (TD1, lacune
+dominante N1-1) a ete integre en complement du referentiel existant
+(TD2, lacune dominante N1-2), avec un selecteur permettant de choisir
+lequel appliquer a un instant donne. Le code a ete structure pour
+permettre a un axe d'etre lie a plusieurs observables simultanement
+(par exemple un axe peut etre rattache a la fois a OBS-01 et OBS-02),
+ce qui n'etait pas necessaire dans le referentiel initial mais l'est
+devenu avec le second.
+
+8.6 Corrections successives de l'import CSV
+L'import de fichiers CSV a fait l'objet de plusieurs cycles de
+correction successifs, chacun declenche par un cas reel d'echec
+rencontre par l'utilisateur :
+- detection automatique du separateur (virgule, point-virgule, ou
+  tabulation), avec elargissement des alias de colonne de nom
+  reconnus, et ajout d'un mecanisme de repli automatique sur la
+  deuxieme colonne du fichier (avec avertissement explicite) lorsque
+  aucune colonne reconnue n'est trouvee ;
+- reecriture stricte de l'ordre de priorite de detection de la colonne
+  de nom, fixe a la demande de l'utilisateur comme suit : en premier
+  une colonne nommee simplement NOM (qui doit fonctionner seule, sans
+  necessiter de colonne PRENOM associee), puis NOM_PRENOM, puis
+  Nom_Eleve, puis enfin une combinaison automatique de colonnes NOM et
+  PRENOM distinctes lorsque les deux sont presentes ;
+- correction definitive d'un probleme de sensibilite aux accents, a la
+  casse et aux espacements dans les en-tetes de colonnes (par exemple
+  "NOM / PRENOM" et "NOM / PRÉNOM" n'etaient pas reconnus comme
+  identiques) via une fonction de normalisation des en-tetes
+  (suppression des accents par decomposition Unicode, mise en
+  minuscules, reduction des espaces et separateurs multiples), associee
+  a un message de confirmation affiche a chaque import indiquant
+  precisement quelle colonne a ete detectee.
+
+8.7 Restylage visuel
+L'etape de selection des axes prioritaires et le tableau individuel de
+resultats ont ete restyles visuellement en s'inspirant de la structure
+(mais pas necessairement de la palette de couleurs, deliberement
+conservee identique a l'existant) d'un modele de reference fourni par
+l'utilisateur : cartes modernes pour chaque axe avec une barre de
+pertinence visuelle proportionnelle au pourcentage de lacune detectee,
+bandeaux d'information restyles, et tableau de resultats individuel
+modernise (en-tete colore, lignes alternees, defilement horizontal sur
+petits ecrans). Un bug d'alignement pre-existant a egalement ete
+corrige a cette occasion : un en-tete de colonne "Niveau" sans cellule
+de donnees correspondante decalait toutes les colonnes suivantes du
+tableau.
+
+
+====================================================================
+9. PHASE 6 (SESSION COURANTE) — OUTIL PREMIUM
+====================================================================
+
+La session courante a porte sur une variante du fichier, renommee
+successivement "Premium FIXED" puis "Premium v4" au fil des echanges,
+integrant l'ensemble du travail des phases precedentes et y ajoutant
+les elements suivants.
+
+9.1 Correction de bugs critiques d'affichage de notes
+Un bug a ete signale a deux reprises sur deux tableaux differents : les
+colonnes OBS-01/02/03 affichaient une valeur convertie sur 10 (par
+exemple 7,5) au lieu de la valeur brute reellement saisie par
+l'enseignant (par exemple 4,5 sur un bareme de 6). Ce bug a d'abord ete
+corrige dans le tableau "Analyse de la classe", puis le meme probleme,
+non remarque initialement, a ete signale et corrige a l'identique dans
+le "Tableau individuel" de la premiere page. Dans les deux cas, la
+correction a consiste a afficher les champs de valeur brute deja
+calcules en interne (mais jusque-la non utilises pour l'affichage) a la
+place des champs normalises sur 10, tout en laissant inchanges les
+calculs de moyenne sur 10 et de classification A/B/C, qui doivent
+legitimement continuer a utiliser les valeurs normalisees. Les exports
+CSV correspondants ont egalement ete corriges. Chaque correction a ete
+verifiee en reproduisant exactement les valeurs du cas signale par
+l'utilisateur (par exemple Hicham 3,5/4/2, Mohamed 4,5/4/1).
+
+9.2 Correction de la navigation bloquee entre etapes 2 et 1
+Un bug de navigation a ete signale : il etait impossible de revenir de
+l'Etape 2 (selection des axes) a l'Etape 1 (diagnostic) du parcours en
+4 etapes. L'investigation a revele que le bouton de retour existait
+bel et bien dans le code et etait correctement relie a sa fonction,
+mais qu'une version plus recente de la fonction d'affichage des axes,
+ajoutee a une etape anterieure du projet pour une interface "premium"
+avec icones et compteur, masquait completement la barre d'outils
+d'origine contenant ce bouton, sans le reintegrer dans la nouvelle barre
+d'outils de remplacement. Le bouton de retour a ete reintegre dans
+cette nouvelle barre d'outils. A cette occasion, un second probleme a
+egalement ete corrige : la fonction de retour effacait jusque-la
+systematiquement les axes deja selectionnes par l'enseignant a chaque
+retour en arriere, entrainant une perte de travail ; elle a ete
+modifiee pour conserver cette selection. Un garde-fou supplementaire a
+ete ajoute pour fermer systematiquement la vue "Analyse de la classe"
+lors de tout changement d'etape, evitant qu'elle ne reste visible par
+erreur au-dessus d'une autre etape.
+
+9.3 Fonctionnalites de gestion ajoutees a la grille d'evaluation
+Trois fonctionnalites precedemment absentes ont ete ajoutees a la page
+Grille d'Evaluation, sur la base d'une verification prealable de ce qui
+existait reellement dans le code (l'ajout et la suppression d'equipe,
+ainsi que l'ajout d'eleve, existaient deja ; seules la suppression
+individuelle d'un eleve et la saisie rapide par numero etaient
+reellement manquantes) :
+- un bouton de suppression individuelle d'un eleve au sein d'une
+  equipe, avec une regle de garde-fou imposant qu'au moins un eleve
+  reste toujours present dans chaque equipe (le bouton est
+  automatiquement desactive lorsque ce minimum est atteint) ;
+- une fonctionnalite de "saisie rapide par numero", activee
+  automatiquement apres l'import d'une liste d'eleves : le champ de
+  nom de chaque ligne se transforme alors en un petit champ numerique,
+  et taper un numero remplit automatiquement le nom correspondant avec
+  un retour visuel (vert en cas de succes, rouge si le numero est
+  introuvable dans la liste importee) ;
+- persistance de la liste importee dans le stockage local, de sorte
+  que le mode de saisie rapide par numero et les noms deja associes
+  survivent a un rechargement de la page.
+
+9.4 Audit de deploiement GitHub Pages et persistance complete
+Un audit complet a ete realise par rapport a une liste de 10 conditions
+fournies par l'utilisateur pour rendre l'outil veritablement deployable
+sur GitHub Pages et utilisable par n'importe quel enseignant de maniere
+autonome (fonctionnement hors-ligne, donnees strictement locales,
+persistance automatique, responsive mobile, reinitialisation avec
+confirmation, export/import de session complete, export de resultats,
+donnees de demonstration, chemins relatifs, organisation du depot avec
+un fichier `index.html`). Cet audit a identifie que 4 conditions
+etaient deja remplies, et 6 manquantes ou partiellement remplies.
+Deux decisions ont ete prises et mises en oeuvre a la suite de cet
+audit :
+- retrait complet de Tesseract.js (la bibliotheque d'OCR, chargee
+  depuis un reseau de diffusion de contenu externe) afin de garantir
+  un fonctionnement entierement hors-ligne meme au tout premier
+  chargement de la page, au prix de la perte definitive de
+  l'import de liste par photographie (l'import par fichier CSV/TXT
+  reste disponible et devient la seule methode d'import de liste) ;
+- ajout d'un systeme complet de sauvegarde automatique pour la
+  premiere page de l'outil (Diagnostic & Planification), qui n'en
+  disposait pas jusque-la contrairement a la seconde page : sont
+  desormais sauvegardes automatiquement le formulaire de saisie des
+  eleves, le niveau scolaire choisi, le referentiel d'axes actif, les
+  axes deja coches, le nombre de seances regle sur le curseur, et
+  l'etape du parcours sur laquelle se trouvait l'enseignant — le tout
+  restaure fidelement au rechargement de la page, y compris le
+  recochage correct des cases d'axes precedemment selectionnees.
+Un bouton "Nouvelle session", avec confirmation obligatoire avant
+effacement, a egalement ete ajoute pour repartir entierement a zero sur
+cette premiere page.
+
+9.5 Remplacement systeme des confirmations natives du navigateur
+A la demande de l'utilisateur, l'ensemble des appels aux fonctions
+natives `confirm()` et `alert()` du navigateur (peu personnalisables et
+d'apparence datee) ont ete remplaces par un systeme de fenetre modale
+personnalisee, centree sur l'ecran, avec fond sombre semi-transparent,
+animation d'ouverture, et signal sonore genere via l'API Web Audio a
+chaque ouverture. Cette modale propose deux variantes : une variante a
+deux boutons (Annuler/Confirmer) pour les actions necessitant une
+validation, et une variante a un seul bouton pour les messages purement
+informatifs. Un systeme de notification temporaire ("toast"), affichee
+en bas a droite de l'ecran et disparaissant automatiquement apres
+quelques secondes, a egalement ete ajoute pour confirmer visuellement
+le succes d'une action sans bloquer l'interface. L'ancienne fonction de
+confirmation personnalisee, devenue obsolete avec ce remplacement, a
+ete entierement supprimee du code apres verification qu'elle n'etait
+plus appelee nulle part.
+
+9.6 Boutons "Vider" pour la grille et le diagnostic
+Deux nouveaux boutons ont ete ajoutes, l'un sur chaque page de l'outil,
+permettant d'effacer uniquement les donnees saisies par l'utilisateur
+sans toucher a la configuration : "Vider la grille" efface les noms,
+les notes selectionnees et le Conceptuel de chaque eleve sur la page
+Grille d'Evaluation, sans modifier le bareme ni la structure des
+equipes ; "Vider le diagnostic" efface les eleves et les resultats
+calcules sur la premiere page, sans modifier le niveau scolaire choisi,
+le referentiel d'axes actif, les axes deja coches, ni le nombre de
+seances regle — une distinction volontairement plus etroite que le
+bouton "Nouvelle session" deja existant, qui efface lui l'ensemble de
+la configuration.
+
+Une demande ulterieure, visant a supprimer entierement la section
+"Analyse de la classe" de l'application, a ete explicitement refusee
+par l'utilisateur lui-meme apres qu'il lui ait ete signale que cela
+contredirait une decision anterieure, prise plus tot dans le projet, de
+conserver et d'integrer cette page dans le parcours de l'application.
+
+9.7 Integration d'une nouvelle identite visuelle (page d'accueil ES-VLB)
+Une nouvelle maquette graphique, intitulee "ES-VLB", a ete fournie sous
+forme d'image, presentant un logo de volleyball, le titre "ES-VLB", le
+sous-titre "EPS - Volleyball", un encart mentionnant le code de classe
+COL3-G08 et les noms des realisateurs (Amina Aoubi, Mohamed Houcine),
+une citation inspirante, et deux cartes de navigation ("Diagnostic et
+Planification" et "Grille d'Evaluation"). Avant toute modification, une
+verification a ete effectuee pour confirmer qu'aucune des deux pages
+existantes de l'application n'avait disparu et que la navigation
+reelle (deja existante, pilotee par des boutons caches synchronises
+avec les onglets visibles de la barre superieure) n'avait pas ete
+modifiee. Sur clarification de l'utilisateur, cette nouvelle identite
+visuelle a ete integree non pas comme une page d'accueil entierement
+separee, mais comme un bandeau d'en-tete remplaçant l'ancien encart de
+bienvenue en tete de la premiere page, avec ses deux cartes declenchant
+exactement la meme navigation reelle que les boutons d'onglets
+existants.
+
+9.8 Guide d'aide interactif
+Un guide d'utilisation interactif a ete ajoute, accessible depuis un
+bouton "? Aide" toujours visible dans la barre de navigation
+superieure, commune aux deux pages de l'application. Ce guide s'ouvre
+automatiquement lors de la toute premiere visite de l'utilisateur
+(memorise via une cle dediee du stockage local du navigateur), puis
+uniquement sur demande explicite par la suite. Il se presente sous
+forme d'une fenetre modale a 5 onglets en forme de pilule : un onglet
+Accueil avec deux cartes menant directement aux deux pages reelles de
+l'application, un onglet Diagnostic detaillant les 4 etapes du parcours
+de diagnostic avec des indicateurs numerotes colores, un onglet Grille
+detaillant de la meme maniere les 4 etapes d'utilisation de la grille
+d'evaluation, un onglet Export listant les 4 options d'export
+disponibles avec leurs usages respectifs, et un onglet Securite
+expliquant le fonctionnement des confirmations, de la sauvegarde
+automatique et des limites en cas de changement d'appareil. Ce guide
+est entierement en lecture seule (aucun formulaire ni champ
+modifiable), se ferme par un bouton de fermeture ou par un clic en
+dehors de la fenetre, et s'adapte automatiquement au mode sombre du
+systeme d'exploitation de l'utilisateur via des variables de style
+dediees.
+
+
+====================================================================
+10. ARCHITECTURE TECHNIQUE DETAILLEE DE L'OUTIL FINAL
+====================================================================
+
+L'outil final se presente sous la forme d'un unique fichier HTML
+autonome (environ 7100 lignes, 265 a 270 kilo-octets selon la version),
+contenant l'intégralite du code HTML, des feuilles de style CSS et du
+code JavaScript necessaire a son fonctionnement.
+
+10.1 Pages et navigation
+Deux espaces de travail principaux coexistent dans ce fichier unique,
+chacun materialise par un conteneur HTML distinct (identifiants
+`pageOutil` pour le Diagnostic & Planification, et `pageGrille` pour la
+Grille d'Evaluation), dont la visibilite est controlee par l'ajout ou
+le retrait d'une classe CSS `visible`. La bascule entre les deux pages
+est pilotee par un ensemble de boutons d'onglets situes dans une barre
+de navigation superieure partagee, elle-meme synchronisee avec un
+second ensemble de boutons internes a la premiere page (initialement
+necessaires pour des raisons historiques de structure du code, et
+conserves caches pour ne pas perturber la logique existante).
+
+10.2 Isolation du code
+Le code JavaScript de la seconde page (Grille d'Evaluation) est
+encapsule dans une fonction immediatement invoquee (pattern IIFE),
+isolant ses variables internes (listes d'equipes, d'eleves, bareme
+actif) de celles de la premiere page, qui restent quant a elles
+declarees au niveau global du script. Le systeme de modale de
+confirmation, le signal sonore et les notifications temporaires sont
+en revanche definis comme des fonctions globales, accessibles depuis
+n'importe quel point du code, sur les deux pages.
+
+10.3 Persistance des donnees
+Aucune donnee n'est jamais transmise a un serveur externe. L'ensemble
+des informations saisies par l'enseignant (eleves, notes, equipes,
+bareme personnalise, axes selectionnes, parametres de planification)
+est stocke exclusivement dans le stockage local du navigateur
+(`localStorage`), sous plusieurs cles distinctes selon la nature de la
+donnee et, pour la grille d'evaluation, selon le template actif
+(Terrain ou Officielle), garantissant qu'aucune contamination
+croisee ne puisse se produire entre deux modeles de grille
+independants.
+
+10.4 Calculs metier
+Pour chaque eleve, l'outil distingue systematiquement les valeurs
+brutes telles que saisies par l'enseignant (sur le bareme propre a
+chaque observable, par exemple sur 6, 7 ou 4 selon le niveau scolaire
+choisi) des valeurs normalisees sur 10 (obtenues en divisant la valeur
+brute par son maximum puis en multipliant par 10), ces dernieres
+servant exclusivement au calcul de la moyenne generale et a la
+classification en profil A/B/C de l'eleve. Cette distinction, bien que
+presente depuis l'origine dans le moteur de calcul, n'avait pas
+toujours ete correctement repercutee dans l'affichage des tableaux de
+resultats, ce qui a constitue l'un des bugs majeurs corriges au cours
+de la session courante (cf. section 9.1).
+
+
+====================================================================
+11. INVENTAIRE COMPLET DES FONCTIONNALITES LIVREES
+====================================================================
+
+11.1 Page "Diagnostic & Planification"
+- Choix du niveau scolaire (1AC/2AC/3AC) avec bareme dynamique associe
+- Saisie manuelle des eleves ligne par ligne, ou import depuis un
+  fichier CSV terrain
+- Calcul automatique de la moyenne sur 10, de la note finale sur 20,
+  du profil global A/B/C, du profil detaille par observable, des
+  lacunes identifiees et de l'axe prioritaire associe
+- Deux referentiels d'axes prioritaires selectionnables (ADP2026/TD1
+  et TD2), avec recalcul immediat de la pertinence par axe
+- Selection des axes a travailler, avec regle de nombre minimal/maximal
+  impose
+- Reglage du nombre de seances du cycle via un curseur (6 a 10)
+- Generation automatique d'une planification de cycle, avec tableau
+  recapitulatif et recommandation globale
+- Vue plein ecran "Analyse de la classe" avec export PDF et CSV dedies
+- Persistance automatique complete de la saisie, du parametrage et de
+  l'etape en cours
+- Bouton "Vider le diagnostic" (efface la saisie, conserve la
+  configuration)
+- Bouton "Nouvelle session" (reinitialisation complete, avec
+  confirmation)
+- Exports CSV et impression a chaque etape cle du parcours
+
+11.2 Page "Grille d'Evaluation"
+- Deux templates de grille preconfigures (Terrain et Officielle),
+  totalement independants en termes de donnees sauvegardees
+- Bareme entierement modifiable (noms de criteres, valeurs maximales,
+  libelles de niveau, valeurs de points, descriptions), avec
+  repercussion instantanee sur le tableau et la formule affichee
+- Gestion complete des equipes : ajout, suppression avec confirmation
+  (minimum une equipe toujours preservee), reordonnancement par
+  glisser-deposer, renumerotation automatique
+- Gestion complete des eleves par equipe : ajout, suppression
+  individuelle avec garde-fou (minimum un eleve par equipe)
+- Import d'une liste d'eleves par fichier, avec saisie rapide par
+  numero une fois la liste importee (retour visuel succes/erreur)
+- Saisie des notes par selection directe dans le bareme (systeme de
+  puces classees par niveau), avec calcul instantane de la note sur 20
+- Bouton "Vider la grille" (efface noms et notes, conserve bareme et
+  structure)
+- Fonction d'analyse de synthese de la grille (repartition des
+  profils, moyennes)
+- Exports PDF et CSV, impression
+
+11.3 Fonctionnalites transverses
+- Systeme unifie de confirmation centree avec signal sonore, remplaçant
+  integralement les fenetres natives du navigateur
+- Notifications de succes temporaires (toast) apres les actions de
+  type "vider" ou apres un import reussi
+- Bandeau d'identite visuelle ES-VLB en tete de la premiere page, avec
+  deux cartes de navigation vers les pages reelles de l'application
+- Guide d'aide interactif a 5 onglets, ouverture automatique a la
+  premiere visite, adaptation automatique au mode sombre du systeme
+
+
+====================================================================
+12. INVENTAIRE DES BUGS IDENTIFIES ET CORRIGES
+====================================================================
+
+1. Desynchronisation des cles `e.conceptuel`/`e.concept` empechant la
+   prise en compte correcte de la note Conceptuel saisie (Phase 5).
+2. Sensibilite aux variantes d'accents/casse/espacement dans les
+   en-tetes de colonnes CSV, provoquant des echecs d'import repetes
+   malgre des corrections partielles successives (Phase 5).
+3. Ordre de priorite de detection de la colonne de nom non conforme a
+   la specification exacte demandee, provoquant des echecs d'import sur
+   des fichiers ne contenant qu'une colonne NOM seule (Phase 5).
+4. En-tete de colonne "Niveau" sans cellule de donnees correspondante
+   dans le tableau individuel, decalant l'affichage de toutes les
+   colonnes suivantes (Phase 5).
+5. Collision d'identifiant HTML (`btnPrint`) entre les deux pages lors
+   de leur fusion en une seule application (Phase 4).
+6. Affichage de valeurs de notes converties sur 10 a la place des
+   valeurs brutes reellement saisies, dans le tableau "Analyse de la
+   classe" puis, separement, dans le "Tableau individuel" (session
+   courante).
+7. Bouton de retour de l'Etape 2 vers l'Etape 1 rendu invisible par une
+   barre d'outils plus recente la masquant sans la remplacer, et perte
+   de la selection d'axes a chaque retour en arriere (session
+   courante).
+8. Fonction `majBaremeNiveauInfo` declaree dans une portee locale
+   inaccessible depuis la fonction de restauration de session,
+   empechant la mise a jour correcte des libelles de bareme au
+   rechargement de la page (session courante, corrige lors de
+   l'implementation de la persistance complete).
+9. Concurrence entre deux fonctions distinctes controlant la
+   visibilite du meme bouton "Modifier la liste" sur la page Grille
+   d'Evaluation, provoquant un comportement incoherent selon l'ordre
+   d'execution (session courante, corrige lors de l'ajout de la saisie
+   rapide par numero).
+
+
+====================================================================
+13. DECISIONS STRUCTURANTES ET ARBITRAGES EFFECTUES
+====================================================================
+
+- Conservation du systeme de classification A/B/C existant (A=faible,
+  C=bon) plutot que l'adoption de la convention inverse presentee dans
+  plusieurs maquettes visuelles fournies ulterieurement, afin de
+  preserver la coherence avec le reste de l'outil deja construit.
+- Conservation des deux referentiels d'axes prioritaires (TD1 et TD2)
+  en parallele, avec selecteur, plutot que le remplacement de l'un par
+  l'autre.
+- Conservation des deux templates de grille (Terrain et Officielle) en
+  parallele, avec independance totale des donnees sauvegardees.
+- Abandon definitif de l'import de liste par photographie (OCR) au
+  profit d'un fonctionnement garanti hors-ligne dès le premier
+  chargement, sur arbitrage explicite de l'utilisateur lors de l'audit
+  de deploiement.
+- Refus de supprimer la section "Analyse de la classe" lorsqu'une
+  demande ulterieure l'a propose, l'utilisateur ayant lui-meme choisi
+  de maintenir sa decision anterieure de la conserver.
+- Refus de construire une application mobile complete avec
+  authentification, tableau de bord et publication sur magasin
+  d'applications, jugee hors perimetre de l'outil HTML existant et ne
+  correspondant pas a un produit reellement fonctionnel pouvant etre
+  livre en l'etat.
+- Integration de la nouvelle identite visuelle ES-VLB comme un bandeau
+  au sein de la page existante plutot que comme une page d'accueil
+  entierement separee, sur clarification explicite de l'utilisateur.
+
+
+====================================================================
+14. METHODE DE VERIFICATION ET DE TEST UTILISEE
+====================================================================
+
+Chaque modification apportee au code, en particulier durant les phases
+recentes du projet, a fait l'objet d'une verification par execution
+reelle plutot que par simple relecture visuelle : verification
+systematique de l'absence d'erreur de syntaxe sur l'ensemble des blocs
+de script du fichier, puis execution de scenarios cibles dans un
+environnement simulant un navigateur (notamment : saisie de donnees
+suivie d'une sauvegarde puis d'une simulation fidele de rechargement de
+page, avec verification que les donnees restaurees sont identiques aux
+donnees saisies ; suppression repetee d'eleves au sein d'une equipe
+jusqu'au dernier restant, pour verifier l'activation correcte du
+garde-fou ; navigation repetee entre les etapes du parcours de
+diagnostic avec verification de la preservation des axes
+precedemment coches ; declenchement de chaque type de fenetre de
+confirmation pour verifier le comportement attendu lors d'une
+confirmation, d'une annulation, et d'un clic en dehors de la fenetre).
+
+Un harnais de test initialement defaillant a ete identifie et corrige
+au cours du projet : une premiere tentative de simulation de
+rechargement de page redefinissait le mecanisme de stockage local
+*apres* que le code de la page ait deja commence a s'executer,
+invalidant silencieusement le resultat du test. La methode a ete
+corrigee pour preremplir le mecanisme de stockage avant toute execution
+de code, simulant ainsi fidelement un veritable rechargement de
+navigateur.
+
+
+====================================================================
+15. POINTS LAISSES EN SUSPENS OU EXPLICITEMENT EXCLUS
+====================================================================
+
+15.1 Issus des phases anterieures, non resolus a ce jour
+- Valeurs manquantes pour deux eleves des Equipes 3-4 (Hicham OBS-02,
+  Ali Comportemental), laissees vides plutot que devinees.
+- Anomalies de Conceptuel superieur au maximum theorique de 3 points,
+  relevees a deux reprises sur des eleves distincts (Mohamed, puis
+  Ali), jamais corrigees automatiquement et toujours en attente de
+  confirmation par l'enseignant.
+- Quatre enrichissements du referentiel d'axes prioritaires TD1,
+  identifies comme "a valider" par rapport a des sources externes
+  (Eduscol, travaux de Gréhaigne), non integres a ce jour.
+- Confirmation formative attendue de la part d'un formateur, au format
+  impose par le referentiel, concernant les axes retenus et les
+  enrichissements integres ou rejetes.
+
+15.2 Issus de l'audit de deploiement GitHub Pages, non realises
+- Export et import d'une session complete au format JSON (sauvegarde
+  de secours et transfert vers un autre appareil).
+- Jeu de donnees de demonstration pre-rempli, permettant de tester
+  l'outil immediatement sans saisie prealable.
+- Renommage du fichier final en `index.html` et organisation du depot
+  conformement aux exigences de deploiement sur GitHub Pages.
+
+15.3 Explicitement exclus sur decision de l'utilisateur ou refus
+justifie
+- Suppression de la section "Analyse de la classe" — demande puis
+  explicitement annulee par l'utilisateur lui-meme.
+- Construction d'une application mobile complete (authentification,
+  tableau de bord, gamification, publication sur magasin
+  d'applications) — refusee comme hors perimetre du projet existant.
+- Import de liste d'eleves par photographie (OCR) — retire
+  definitivement au profit d'une garantie de fonctionnement hors-ligne.
+
+
+====================================================================
+16. FICHIERS LIVRES AU COURS DU PROJET
+====================================================================
+
+Documents Word (.docx) :
+Analyse_Ref_VLY_Equipe_ADP2026.docx et sa version 2, plusieurs versions
+successives de grille d'evaluation (v1, v2, MOD v2, MOD v3, grille C3
+comportemental, grille finale), GRILLE_TERRAIN_VLB_ES-VLB.docx et sa
+version 2, GRILLE_FINALE_VLB_ES-VLB.docx, referentiel_VLY_COL3-G08.docx,
+ressources_VLY_COL3-G08.docx, synthese_TD1_VLB_COL3-G08_MEMO.docx,
+synthese_referentiel_VLY_COL3-G08_MEMO.docx.
+
+Fichiers de donnees (.csv) :
+import_terrain_VLB.csv et sa variante equipes3-4,
+grille_VLB_Officielle_export.csv et sa variante equipes3-4.
+
+Documents texte de reference (.txt) :
+grille_v1_VLY_COL3-G08.txt, referentiel_VLY_COL3-G08.txt,
+ressources_VLY_COL3-G08.txt, ressources_VLB_COL3-G08.txt.
+
+Outils HTML interactifs :
+grille_evaluation_VLB.html, grille_interactive_VLB_ES-VLB.html,
+liste_eleves_VLB_ES-VLB.html, outil_v0_VLY_COL3-G08.html, et la
+lignee finale ES-VLB_App.html / ES-VLB_App_Premium_FIXED.html /
+ES-VLB_App_Premium_v4.html (fichier final livre).
+
+Documents de synthese et d'historique du projet :
+memo_synthese_outil_VLY_COL3-G08.md, historique_versions_outil_
+VLY_COL3-G08.md, historique_complet_discussions.md, discussions_48h.md,
+tableau_discussions_identifie.txt, guide_utilisation_ES-VLB.md, et le
+present rapport final.
+
+
+====================================================================
+17. CONCLUSION ET RECOMMANDATIONS
+====================================================================
+
+Le projet a abouti a un outil numerique unique, fonctionnel et
+verifie par execution reelle, couvrant l'integralite du parcours
+pedagogique vise au depart : diagnostic de classe, identification des
+axes de travail prioritaires, planification de cycle, et saisie
+detaillee des notes par equipe et par eleve, le tout conforme au
+referentiel officiel DNB Volleyball Niveau 2 et a la methodologie
+BOUARGANE, tout en restant entierement personnalisable par
+l'enseignant.
+
+La tracabilite des decisions a ete maintenue tout au long du projet :
+chaque arbitrage important (conventions de couleur, choix entre
+plusieurs referentiels, abandon de l'OCR, refus de certaines demandes
+hors perimetre) a ete documente et justifie au moment ou il a ete pris,
+plutot que decide silencieusement.
+
+Trois recommandations principales se degagent pour la suite du projet,
+correspondant aux points laisses en suspens les plus structurants :
+- finaliser la decision pedagogique en attente sur les quatre
+  enrichissements du referentiel d'axes TD1, qui necessite un arbitrage
+  humain (formateur) plutot qu'une decision technique ;
+- completer l'audit de deploiement GitHub Pages par les trois elements
+  manquants identifies (export/import JSON de session, jeu de donnees
+  de demonstration, organisation du depot avec `index.html`), afin que
+  l'outil soit veritablement pret a etre distribue a d'autres
+  enseignants de maniere autonome ;
+- lever les ambiguites de transcription encore en attente (valeurs
+  manquantes, Conceptuel hors bareme) auprès des enseignants ayant
+  rempli les grilles papier d'origine, avant toute utilisation des
+  donnees correspondantes a des fins d'evaluation reelle.
+
+====================================================================
+FIN DU RAPPORT
+====================================================================

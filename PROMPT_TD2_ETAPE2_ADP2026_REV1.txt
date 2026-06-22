@@ -1,0 +1,482 @@
+═══════════════════════════════════════════════════════════════════════════
+PROMPT TD2 — ÉTAPE 1bis-A — AXES DE CONTENU PRIORITAIRES
+Format de sortie .txt avec enrichissement documentaire
+Produit : referentiel_[APS]_[CODE].txt — SECTION AXES PRIORITAIRES
+Formateur : BOUARGANE — CRMEF Inezgane — ADP 2026
+Version REV 1 — Mai 2026
+═══════════════════════════════════════════════════════════════════════════
+
+PRINCIPE
+─────────
+Ce prompt reçoit le fichier ressources_[APS]_[CODE].txt produit
+par l'Étape 1 (version MAJ 2 ou version Mémoire de conversation).
+Il ne demande pas à l'équipe de recopier d'informations.
+Il construit le graphe de dépendances et les axes prioritaires
+à partir de la matière déjà structurée par l'Étape 1.
+Il opère en deux modes distincts et clairement séparés.
+
+MODE 1 — ANALYSE FIDÈLE (obligatoire)
+  Construire le graphe de dépendances et les axes prioritaires
+  UNIQUEMENT à partir des fichiers joints.
+  Rien n'est inventé · tout contenu est traçable dans les fichiers.
+
+MODE 2 — ENRICHISSEMENT DOCUMENTAIRE (signalé explicitement)
+  L'IA peut proposer des compléments issus de sources certifiées en ligne.
+  Chaque complément est encadré par des balises distinctes.
+  L'équipe valide ou rejette chaque complément avant dépôt GitHub.
+
+RÈGLE DE DISTINCTION VISUELLE OBLIGATOIRE
+  Contenu MODE 1 : affiché normalement
+  Contenu MODE 2 : encadré par
+    [ENRICHISSEMENT — source externe]
+    ...
+    [FIN ENRICHISSEMENT]
+
+SOURCES CERTIFIÉES ACCEPTÉES POUR LE MODE 2
+  → Revue EPS (revue-eps.com)
+  → Éduscol (eduscol.education.fr)
+  → Cairn.info — sciences du sport · didactique EPS
+  → STAPS — revues universitaires francophones vérifiables
+  → Fédérations sportives nationales et internationales
+  → Programmes officiels EPS marocains (MEN Maroc)
+  → Ouvrages référencés sur Google Scholar
+  Si source non vérifiable : écrire "URL non vérifiable — à écarter"
+
+
+LOGIQUE DE STRUCTURATION DES NIVEAUX — NON NÉGOCIABLE
+───────────────────────────────────────────────────────
+Le niveau de contenu est déterminé par les CONDUITES OBSERVÉES
+dans la classe — pas par le niveau scolaire administratif.
+Le niveau scolaire indique uniquement le STADE DE PROGRESSION
+ATTENDU par tranches de 2 ans :
+
+  Niveau de contenu 1 · Arrière-plan : 6ème · 5ème
+    Référentiel mobilisé : Eduscol N1 collège 2009
+    Correspondance grille : degrés A et B
+
+  Niveau de contenu 2 · Arrière-plan : 4ème · 3ème · 2nde
+    Référentiel mobilisé : Eduscol N1 + N2 collège 2009
+    Correspondance grille : N1→A/B · N2→C
+
+  Niveau de contenu 3 · Arrière-plan : 1ère · Terminale
+    Référentiel mobilisé : Eduscol N2 collège + N3 lycée 2011
+    Correspondance grille : N2→C · N3→horizon lycée
+
+Le niveau de contenu identifié est lu dans la Section 1
+du fichier ressources_[APS]_[CODE].txt joint.
+L'équipe ne le renseigne pas manuellement.
+
+Si écart stade/conduites détecté dans ressources_[APS]_[CODE].txt :
+→ Le signal didactique est intégré dans les axes proposés.
+→ La tension entre conduites réelles et stade attendu
+  oriente la progression spiralaire.
+
+
+MODE D'ENTRÉE — À COCHER PAR L'ÉQUIPE AVANT ENVOI
+───────────────────────────────────────────────────
+  ⚠ Cocher UNE seule case selon la version de l'Étape 1 utilisée.
+
+  □ MODE D'ENTRÉE A — Étape 1 version MAJ 2 (fichiers joints)
+      L'Étape 1 a produit ressources_[APS]_[CODE].txt
+      à partir de synthese_TD1_[APS]_[CODE].txt joint.
+      Joindre à ce prompt :
+        □ ressources_[APS]_[CODE].txt    — OBLIGATOIRE
+        □ synthese_TD1_[APS]_[CODE].txt  — OBLIGATOIRE
+
+  □ MODE D'ENTRÉE B — Étape 1 version Mémoire de conversation
+      L'Étape 1 a produit ressources_[APS]_[CODE].txt
+      à partir des sorties TD1 en mémoire de la conversation.
+      Les données TD1 sont accessibles dans cette même conversation.
+      Joindre à ce prompt :
+        □ ressources_[APS]_[CODE].txt    — OBLIGATOIRE
+      Les données TD1 (conduites · niveau · grille) sont lues
+      par l'agent IA directement dans la mémoire de cette conversation.
+
+  ⚠ Ne jamais joindre eduscol_[APS].txt — ce fichier est supprimé.
+    Les données Eduscol sont dans ressources_[APS]_[CODE].txt S2 et S3.
+
+
+FICHIERS À JOINDRE
+───────────────────
+  □ ressources_[APS]_[CODE].txt          — OBLIGATOIRE dans les deux modes
+    Sortie de l'Étape 1 — validée par le formateur
+    Contient :
+      Section 1 — Identité · niveau de contenu · écart stade/conduites
+      Section 2 — Correspondance Eduscol ←→ Grille (déjà établie)
+      Section 3 — Capacités par niveau numérotées et analysées
+      Section 4 — Conduites observées lues · lacunes identifiées
+      Section 5 — Bilan d'enrichissement
+      Section 6 — Matière préparée pour ce prompt
+
+  
+  ⚠ eduscol_[APS].txt N'EST PLUS À JOINDRE — supprimé définitivement.
+    Les données Eduscol figurent dans ressources_[APS]_[CODE].txt S2 et S3.
+
+
+CORRESPONDANCE FONDAMENTALE — DÉJÀ ÉTABLIE PAR L'ÉTAPE 1
+──────────────────────────────────────────────────────────
+La correspondance Eduscol ←→ Grille a été établie en Section 2
+du fichier ressources_[APS]_[CODE].txt.
+Elle N'EST PAS à reconstruire ici.
+L'agent IA la lit directement dans la Section 2 de ce fichier.
+
+Pour mémoire — table de correspondance :
+
+  Niveau de contenu 1
+    Eduscol N1 (bas) ←→ Degré A de la grille (lacunes dominantes)
+    Eduscol N1 (haut) ←→ Degré B de la grille (en construction)
+
+  Niveau de contenu 2
+    Eduscol N1 ←→ Degrés A et B de la grille
+    Eduscol N2 ←→ Degré C de la grille (cible du cycle)
+
+  Niveau de contenu 3
+    Eduscol N2 ←→ Degré C de la grille
+    Eduscol N3 lycée ←→ Horizon au-delà du cycle
+                         (élèves avancés · orientation lycée)
+
+  Si écart stade/conduites détecté :
+    La correspondance intègre la tension entre le niveau
+    de contenu réel et le stade attendu.
+    Ex : classe de 4ème présentant un niveau de contenu 1 →
+    la correspondance ancre sur N1 mais signale
+    la transition attendue vers N2 dans les axes.
+
+
+VARIABLES À RENSEIGNER
+────────────────────────
+  [APS]    = ________________________________
+  [CODE]   = ________________________________
+  [Volume] = ________________________________ séances
+
+  ⚠ Le niveau scolaire et le niveau de contenu sont lus
+    automatiquement depuis ressources_[APS]_[CODE].txt Section 1.
+    Ne pas les renseigner ici.
+
+
+═══════════════════════════════════════════════════════════════════════════
+PROMPT — À COPIER ET ENVOYER À L'AGENT IA
+═══════════════════════════════════════════════════════════════════════════
+
+  Tu es un didacticien EPS expert en [volleyball].
+  Source de référence méthodologique :
+  Planificateur de Cycle EPS v5 — BOUARGANE · CRMEF Inezgane · 2025/2026
+
+  Tu opères en deux modes distincts.
+
+  MODE 1 — ANALYSE FIDÈLE
+  En t'appuyant exclusivement sur les fichiers joints
+  (et sur la mémoire de cette conversation si MODE D'ENTRÉE B),
+  construis le graphe de dépendances et les axes prioritaires.
+  Tout contenu doit être traçable dans les fichiers joints
+  ou dans la mémoire de cette conversation.
+  Si une information est absente : écrire "non disponible".
+
+  MODE 2 — ENRICHISSEMENT DOCUMENTAIRE
+  Pour chaque axe proposé, si tu identifies une source certifiée
+  en ligne qui enrichit ou précise le contenu, tu la proposes
+  dans une balise distincte avec :
+    Source  : auteur · titre · institution · année
+    URL     : lien direct vérifiable
+    Apport  : ce que cette source ajoute à l'axe
+    Statut  : à valider par l'équipe avant intégration
+  Si aucune source certifiée disponible : balise vide.
+
+  LOGIQUE DE STRUCTURATION DES NIVEAUX — NON NÉGOCIABLE
+  Le niveau de contenu est déterminé par les CONDUITES OBSERVÉES.
+  Le niveau scolaire indique le stade de progression attendu
+  par tranches de 2 ans — il oriente sans contraindre.
+  Lis le niveau de contenu identifié dans la Section 1
+  du fichier ressources_[volleyball]_[ES VOL eq 8].txt joint.
+  Lis l'écart éventuel stade/conduites dans la Section 1.
+  Si écart détecté : intègre la tension dans les axes proposés.
+
+  SOURCE DES DONNÉES — SELON LE MODE D'ENTRÉE COCHÉ PAR L'ÉQUIPE
+
+  [Si MODE D'ENTRÉE A — fichiers joints]
+  Lis toutes les données dans les deux fichiers joints :
+    ressources_[APS]_[CODE].txt  — source primaire
+    synthese_TD1_[APS]_[CODE].txt — source complémentaire
+  En cas de divergence entre les deux fichiers :
+  la donnée de ressources_[APS]_[CODE].txt prévaut.
+
+  [Si MODE D'ENTRÉE B — mémoire de conversation]
+  Lis toutes les données dans le fichier joint :
+    ressources_[APS]_[CODE].txt  — source primaire
+  Pour les données TD1 non reprises dans ressources
+  (conduites brutes · codes détaillés · grille complète) :
+  remonte dans la mémoire de cette conversation pour les lire.
+  Elles figurent dans les sorties P1 P2 P3 P4 du TD1.
+
+  CORRESPONDANCE EDUSCOL ←→ GRILLE — DÉJÀ ÉTABLIE
+  La correspondance a été établie en Section 2
+  de ressources_[APS]_[CODE].txt.
+  Tu la lis directement — tu ne la reconstruis pas.
+  Tu t'en sers comme base pour construire le graphe.
+
+  Le graphe de dépendances relie les capacités Eduscol
+  du niveau inférieur (lacunes observées chez degrés A/B)
+  aux capacités du niveau supérieur (cible degré C ou horizon).
+  Ces capacités sont numérotées et analysées en Section 3
+  de ressources_[APS]_[CODE].txt.
+
+  La lacune dominante identifiée en Section 4
+  de ressources_[APS]_[CODE].txt est le point d'ancrage
+  prioritaire — elle oriente le prérequis clé et l'Axe 1.
+
+  Produis la SECTION AXES PRIORITAIRES du fichier
+  referentiel_[APS]_[CODE].txt
+  selon le format exact ci-dessous.
+
+
+FORMAT DE SORTIE IMPOSÉ
+════════════════════════
+
+  ═══════════════════════════════════════════════════════════════
+  RÉFÉRENTIEL — [APS] — [CODE] — SECTION AXES PRIORITAIRES
+  ADP 2026 — CRMEF Inezgane — Section EPS — BOUARGANE
+  APS                              : [APS]
+  Niveau scolaire (arrière-plan)   : [lu depuis ressources S1]
+  Conduites observées              : [résumé depuis ressources S1]
+  Niveau de contenu identifié      : [lu depuis ressources S1]
+  Écart stade/conduites            : [OUI · NON — lu depuis ressources S1]
+  Volume cycle                     : [Volume] séances
+  Mode d'entrée                    : [A — fichiers joints · B — mémoire]
+  Source primaire                  : ressources_[APS]_[CODE].txt
+  Source TD1                       : [synthese_TD1_[APS]_[CODE].txt · ou mémoire conversation]
+  ═══════════════════════════════════════════════════════════════
+
+  SIGNAL DIDACTIQUE (si écart OUI)
+  ──────────────────────────────────
+  [Reprendre le signal depuis ressources S1
+   et préciser son impact sur les axes proposés]
+
+  CORRESPONDANCE EDUSCOL — GRILLE
+  ─────────────────────────────────
+  [MODE 1 — Lue depuis ressources_[APS]_[CODE].txt Section 2
+   Ne pas reconstruire — résumer en une ligne par degré]
+
+  Degré A ←→ Eduscol N[X] (bas) : [N] capacités · [N] absentes
+  Degré B ←→ Eduscol N[X] (haut) : [N] capacités · [N] partielles
+  Degré C ←→ Eduscol N[X+1] : [N] capacités cibles du cycle
+
+  [Si niveau de contenu 3 :]
+  Horizon lycée ←→ Eduscol N3 : [N] capacités — élèves avancés
+
+  Lacune dominante retenue (depuis ressources S4) :
+  [intitulé de la lacune · code dominant · degrés concernés]
+
+  PARTIE A — GRAPHE DE DÉPENDANCES
+  ──────────────────────────────────
+  [MODE 1 — Construit à partir de ressources S2 · S3 · S4
+   Capacités numérotées reprises telles qu'elles figurent
+   dans ressources_[APS]_[CODE].txt Section 3]
+
+  Pour chaque capacité du niveau cible (degré C ou horizon) :
+
+  Capacité [N[X+1]-N° — intitulé depuis ressources S3]
+    ← Prérequis nécessaire : [N[X]-N° — capacité niveau inférieur]
+    ← Degré concerné       : A (absent) · B (partiel)
+    ← Code grille associé  : [code + description depuis ressources S4]
+    ← Conditionne          : [N] autres capacités
+
+  [Répéter pour chaque capacité cible]
+
+  PRÉREQUIS CLÉ IDENTIFIÉ
+  ────────────────────────
+  Prérequis      : [capacité la plus structurante — N[X]-N°]
+  Degré concerné : A et/ou B
+  Code grille associé : [code + description lacune]
+  Conditionne    : [N] capacités sur [total]
+  Conclusion     : objet d'ancrage prioritaire du Tour 1
+
+  [ENRICHISSEMENT — source externe]
+  Données complémentaires sur ce prérequis en [APS] :
+  Source  : [auteur · titre · institution · année]
+  URL     : [lien direct vérifiable]
+  Apport  : [ce que cette source précise]
+  Statut  : à valider par l'équipe avant intégration
+  [FIN ENRICHISSEMENT]
+
+  PARTIE B — AXES DE CONTENU PROPOSÉS
+  ─────────────────────────────────────
+  [MODE 1 — Déduits du graphe · classés par impact
+   sur la progression vers la cible du niveau suivant
+   Ancrés sur la lacune dominante identifiée en ressources S4]
+
+  AXE 1 — Priorité haute
+  ───────────────────────
+  Contenu        : [intitulé didactique — pas de pourcentages]
+  Cible          : progression des degrés A et B vers les
+                   capacités non acquises du niveau courant
+  Justification  : [lacune · code dominant · capacité traitée
+                    depuis ressources S4]
+  Prérequis      : [N[X]-N° · capacité du niveau courant traitée]
+  Impact         : [N[X+1]-N° · capacités du niveau suivant débloquées]
+  Signal stade   : [si écart détecté — rappeler la tension depuis ressources S1]
+  Source         : ressources_[APS]_[CODE].txt S4
+                   [+ synthese_TD1 S5 si MODE D'ENTRÉE A]
+
+  [ENRICHISSEMENT — source externe]
+  Complément sur cet axe en [APS] :
+  Source  : [auteur · titre · institution · année]
+  URL     : [lien direct vérifiable]
+  Apport  : [ce que cette source ajoute]
+  Statut  : à valider par l'équipe avant intégration
+  [FIN ENRICHISSEMENT]
+
+  AXE 2 — Priorité moyenne
+  ─────────────────────────
+  Contenu        : [intitulé didactique]
+  Cible          : progression des degrés A/B vers les
+                   capacités partiellement acquises
+  Justification  : [lacune · code · capacité traitée
+                    depuis ressources S4]
+  Prérequis      : [N[X]-N° · capacité traitée]
+  Impact         : [N[X+1]-N° · capacités débloquées]
+  Signal stade   : [si écart détecté]
+  Source         : ressources_[APS]_[CODE].txt S4
+                   [+ synthese_TD1 S5 si MODE D'ENTRÉE A]
+
+  [ENRICHISSEMENT — source externe]
+  Complément sur cet axe en [APS] :
+  Source  : [auteur · titre · institution · année]
+  URL     : [lien direct vérifiable]
+  Apport  : [ce que cette source ajoute]
+  Statut  : à valider par l'équipe avant intégration
+  [FIN ENRICHISSEMENT]
+
+  AXE 3 — Consolidation (si volume ≥ 8 séances)
+  ───────────────────────────────────────────────
+  Contenu        : [intitulé didactique]
+  Cible          : accès des degrés B aux premières capacités
+                   du niveau suivant · cible supérieure comme horizon
+  Justification  : [lacune · code · capacité visée
+                    depuis ressources S3 et S4]
+  Prérequis      : [capacités consolidées par axes 1 et 2]
+  Impact         : [N[X+1]-N° · capacités du niveau suivant débloquées]
+  Signal stade   : [si écart détecté]
+  Source         : ressources_[APS]_[CODE].txt S3 · S4
+                   [+ synthese_TD1 S5 si MODE D'ENTRÉE A]
+  Note volume    : si volume < 8 séances → écrire
+                   "Axe 3 non recommandé — volume insuffisant"
+
+  [ENRICHISSEMENT — source externe]
+  Complément sur cet axe en [APS] :
+  Source  : [auteur · titre · institution · année]
+  URL     : [lien direct vérifiable]
+  Apport  : [ce que cette source ajoute]
+  Statut  : à valider par l'équipe avant intégration
+  [FIN ENRICHISSEMENT]
+
+  PARTIE C — BILAN D'ENRICHISSEMENT
+  ───────────────────────────────────
+  Enrichissements repris depuis ressources_[APS] : [N intégrés · N rejetés]
+  Nouveaux compléments proposés ici              : [N]
+  Compléments à valider                          : [N]
+  Sources non vérifiables détectées              : [N · listées si applicable]
+  Recommandation                                 : [ce que l'équipe vérifie en priorité]
+
+  ⚑ POINT DE DÉCISION ENSEIGNANT
+  ────────────────────────────────
+  Les axes ci-dessus sont des propositions fondées sur
+  ressources_[APS]_[CODE].txt et les données TD1 disponibles.
+  Avant de passer à la planification du cycle :
+
+  Validez, ajustez ou complétez ces axes.
+
+  Format de confirmation attendu par le formateur :
+  "Axes retenus — [APS] — [CODE] — [date] :
+   Axe 1 : [intitulé confirmé ou modifié]
+   Axe 2 : [intitulé confirmé ou modifié]
+   Axe 3 : [retenu · supprimé · modifié]
+   Mode d'entrée utilisé : [A · B]
+   Enrichissements intégrés : [N intégrés · N rejetés]"
+
+  ═══════════════════════════════════════════════════════════════
+  FIN — SECTION AXES PRIORITAIRES
+  referentiel_[APS]_[CODE].txt
+  À soumettre au formateur avant prompt 1bis-B
+  Source primaire : ressources_[APS]_[CODE].txt
+  ═══════════════════════════════════════════════════════════════
+
+
+CONTRAINTES DE FORMAT
+──────────────────────
+  → Texte brut uniquement — pas de markdown · pas de tableau
+  → Séparateurs en tirets ou signes = uniquement
+  → Balises d'enrichissement respectées exactement
+  → Maximum 3 axes — rester pragmatique
+  → Pas de pourcentages de distribution d'élèves
+  → Pas de groupes séparés — axes pour toute la classe
+  → Pas de SA — axes · graphe · justifications uniquement
+  → Tout contenu MODE 1 traçable dans les fichiers joints
+    ou dans la mémoire de conversation (MODE D'ENTRÉE B)
+  → URL obligatoire pour tout enrichissement MODE 2
+  → Le niveau de contenu est lu depuis ressources S1
+    — jamais renseigné manuellement dans les variables
+  → La correspondance Eduscol ←→ Grille est lue depuis ressources S2
+    — ne pas la reconstruire · résumer seulement
+  → Les capacités sont numérotées selon la notation de ressources S3
+    (N[X]-N° pour le niveau inférieur · N[X+1]-N° pour le niveau cible)
+  → Le signal stade/conduites est intégré dans chaque axe
+    si écart détecté dans ressources S1
+  → Ne pas joindre eduscol_[APS].txt — ce fichier est supprimé
+
+
+TRAITEMENT PAR L'ÉQUIPE APRÈS RÉCEPTION
+─────────────────────────────────────────
+  □ Vérifier le niveau de contenu lu depuis ressources S1
+    Correspond-il bien aux conduites de votre classe ?
+  □ Vérifier que la correspondance résumée est cohérente avec ressources S2
+  □ Lire le signal stade/conduites s'il est présent
+  □ Lire le graphe — les numéros de capacités correspondent-ils
+    à ceux de ressources S3 ?
+  □ Lire les 3 axes — correspondent-ils à la réalité
+    de votre classe et de vos contraintes terrain ?
+  □ Vérifier le bilan Partie C — les enrichissements de ressources
+    repris sont-ils ceux que vous aviez validés à l'Étape 1 ?
+  □ Pour chaque bloc [ENRICHISSEMENT] :
+      INTÉGRER  → vérifier l'URL · copier · supprimer la balise
+      REJETER   → supprimer le bloc entier
+      VÉRIFIER  → laisser la balise · noter dans Section F
+  □ Rédiger la confirmation des axes au format attendu
+  □ Soumettre au formateur avant de lancer le prompt 1bis-B
+  □ Documenter dans le journal Section F du CDC :
+    "Prompt 1bis-A — [date] — niveau contenu [1·2·3]
+     mode d'entrée [A · B]
+     écart stade [OUI·NON] — [N] enrichissements repris depuis ressources
+     [N] nouveaux — [N] intégrés · [N] rejetés · axes confirmés le [date]"
+
+
+CONVENTION DE NOMMAGE
+──────────────────────
+  Fichiers d'entrée (MODE A) :
+    ressources_[APS]_[CODE].txt     ← sortie Étape 1 MAJ 2
+    synthese_TD1_[APS]_[CODE].txt   ← sortie clôture TD1
+
+  Fichiers d'entrée (MODE B) :
+    ressources_[APS]_[CODE].txt     ← sortie Étape 1 Mémoire
+    (données TD1 en mémoire de conversation — pas de fichier joint)
+
+  Fichier supprimé — NE PLUS UTILISER :
+    eduscol_[APS].txt               ← supprimé depuis REV 1
+
+  Fichier produit :
+    referentiel_[APS]_[CODE].txt — section axes prioritaires
+
+  Exemples :
+    ressources_BKT_DI-BKT.txt
+    synthese_TD1_BKT_DI-BKT.txt (MODE A)
+    referentiel_BKT_DI-BKT.txt
+
+
+NOTE DE PROPRIÉTÉ
+──────────────────
+Logique de scénarisation en 4 niveaux articulés :
+Planificateur de Cycle EPS v5 — BOUARGANE · CRMEF Inezgane · 2025/2026
+À citer en Section C1 du CDC — Source n°1.
+
+═══════════════════════════════════════════════════════════════════════════
+FIN — PROMPT TD2 ÉTAPE 1bis-A — VERSION REV 1 — ADP 2026
+═══════════════════════════════════════════════════════════════════════════

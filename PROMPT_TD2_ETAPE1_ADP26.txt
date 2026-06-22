@@ -1,0 +1,523 @@
+═══════════════════════════════════════════════════════════════════════════
+PROMPT TD2 — ANALYSE DU RÉFÉRENTIEL DIDACTIQUE N1 · N2 · N3
+Version MÉMOIRE DE CONVERSATION — Adaptation ADP 2026
+Format de sortie .txt · Double mode MODE 1 / MODE 2
+Produit : ressources_[APS]_[CODE].txt
+Formateur : BOUARGANE — CRMEF Inezgane — ADP 2026
+═══════════════════════════════════════════════════════════════════════════
+
+ADAPTATION PAR RAPPORT À LA VERSION MAJ 2
+───────────────────────────────────────────
+  MODIFICATION PRINCIPALE
+    Le fichier synthese_TD1_[APS]_[CODE].txt N'EST PAS joint.
+    Il est REMPLACÉ par les 4 sorties du TD1 déjà produites
+    dans cette conversation — elles sont en mémoire active.
+
+  Ce qui est joint à ce prompt :
+    □ fichesapsaeduscol_college2009.pdf    — OBLIGATOIRE
+    □ Lycee_Ressources-FICHE.pdf           — si niveau de contenu 3
+    □ Photo ou scan des fiches             — si PDF non disponible
+
+  Ce qui est en mémoire de conversation (remplace synthese_TD1) :
+    □ Sortie P1 du TD1  — [intitulé ou description de P1]
+    □ Sortie P2 du TD1  — [intitulé ou description de P2]
+    □ Sortie P3 du TD1  — [intitulé ou description de P3]
+    □ Sortie P4 du TD1  — [intitulé ou description de P4]
+
+  ⚠ L'agent IA remonte dans la mémoire de cette conversation
+    pour lire les informations équivalentes aux sections
+    S2 · S3 · S5 · S6 de synthese_TD1.
+    L'équipe précise dans quel document se trouve chaque section.
+
+
+PRINCIPE
+─────────
+Ce prompt lit les documents en mémoire et les PDF joints,
+et produit une analyse structurée du référentiel didactique.
+Il ne prescrit pas d'axes — il prépare la matière
+pour que le prompt 1bis-A puisse les construire.
+
+Il opère en deux modes distincts.
+
+MODE 1 — ANALYSE FIDÈLE (obligatoire)
+  Analyser le référentiel UNIQUEMENT à partir des sources disponibles :
+  documents en mémoire de conversation + PDF joints.
+  Tout contenu est traçable dans ces sources.
+  Rien n'est inventé.
+
+MODE 2 — ENRICHISSEMENT DOCUMENTAIRE (signalé explicitement)
+  L'IA peut proposer des compléments issus de sources certifiées.
+  Chaque complément est encadré par des balises distinctes.
+  L'équipe valide ou rejette chaque complément.
+
+RÈGLE DE DISTINCTION VISUELLE
+  Contenu MODE 1 : affiché normalement
+  Contenu MODE 2 : encadré par
+    [ENRICHISSEMENT — source externe]
+    ...
+    [FIN ENRICHISSEMENT]
+
+SOURCES CERTIFIÉES ACCEPTÉES POUR LE MODE 2
+  → Revue EPS (revue-eps.com)
+  → Éduscol (eduscol.education.fr)
+  → Cairn.info — sciences du sport · didactique EPS
+  → STAPS — revues universitaires francophones vérifiables
+  → Fédérations sportives nationales et internationales
+  → Programmes officiels EPS marocains (MEN Maroc)
+  → Ouvrages référencés sur Google Scholar
+  Si source non vérifiable : écrire "URL non vérifiable — à écarter"
+
+
+LOGIQUE DE STRUCTURATION DES NIVEAUX — NON NÉGOCIABLE
+───────────────────────────────────────────────────────
+Le niveau de contenu est déterminé par les CONDUITES OBSERVÉES
+dans la classe — pas par le niveau scolaire administratif.
+Le niveau scolaire indique uniquement le STADE DE PROGRESSION
+ATTENDU par tranches de 2 ans — il oriente sans contraindre.
+
+  Niveau de contenu 1 · Arrière-plan : 6ème · 5ème
+    PDF à lire    : fichesapsaeduscol_college2009.pdf
+    Pages à lire  : [PAGES_COLLEGE] — fiche N1 uniquement
+    Correspondance : N1 bas → degré A · N1 haut → degré B
+
+  Niveau de contenu 2 · Arrière-plan : 4ème · 3ème · 2nde
+    PDF à lire    : fichesapsaeduscol_college2009.pdf
+    Pages à lire  : [PAGES_COLLEGE] — fiches N1 + N2
+    Correspondance : N1 → degrés A/B · N2 → degré C
+
+  Niveau de contenu 3 · Arrière-plan : 1ère · Terminale
+    PDF à lire    : fichesapsaeduscol_college2009.pdf
+                    + Lycee_Ressources-FICHE.pdf
+    Pages à lire  : [PAGES_COLLEGE] fiche N2
+                    + [PAGES_LYCEE] fiche N3
+    Correspondance : N2 → degré C · N3 → horizon lycée
+
+Le niveau de contenu est lu depuis les sorties TD1 en mémoire.
+L'équipe précise dans quel document il figure (voir ci-dessous).
+L'équipe ne le renseigne pas manuellement dans ce prompt.
+
+
+POSITION DANS LA CHAÎNE DOCUMENTAIRE
+───────────────────────────────────────
+  ENTRÉE   : Sorties TD1 en mémoire de conversation
+             + PDF Eduscol joints directement
+  CE PROMPT : analyse · structure · prépare la matière
+  SORTIE   : ressources_[APS]_[CODE].txt
+  SUITE    : ressources_[APS]_[CODE].txt → entrée prompt 1bis-A
+
+
+AIGUILLAGE DES SECTIONS — À RENSEIGNER PAR L'ÉQUIPE
+─────────────────────────────────────────────────────
+  L'équipe indique dans quel document du TD1 (en mémoire)
+  se trouvent les informations équivalentes aux sections
+  de synthese_TD1. Compléter ci-dessous avant envoi.
+
+  Équivalent Section 2 (conduites observées)
+    → Trouvé dans : [ex : Sortie P1 · ou P2 · ou P3]
+    → Intitulé exact dans la conversation : [...]
+
+  Équivalent Section 3 (niveau de contenu · écart stade/conduites)
+    → Trouvé dans : [ex : Sortie P2 · ou P3]
+    → Intitulé exact dans la conversation : [...]
+
+  Équivalent Section 5 (grille complète · codes · conduites typiques)
+    → Trouvé dans : [ex : Sortie P3 · ou P4]
+    → Intitulé exact dans la conversation : [...]
+
+  Équivalent Section 6 (sources documentaires)
+    → Trouvé dans : [ex : Sortie P4 · ou P3]
+    → Intitulé exact dans la conversation : [...]
+
+  ⚠ Si une section n'est pas localisable dans les sorties TD1 :
+    écrire "non disponible" — l'agent IA écrira "non disponible"
+    dans la section correspondante du fichier de sortie.
+
+
+VARIABLES À RENSEIGNER
+────────────────────────
+  [APS]           = ________________________________
+  [CODE]          = ________________________________
+  [Volume]        = ________________________________ séances
+  [PAGES_COLLEGE] = ________________________________
+                    pages de la fiche [APS] dans le PDF collège
+                    ex : Basketball → pages 37-38
+                         Handball   → pages 33-34
+                         Football   → pages 29-30
+  [PAGES_LYCEE]   = ________________________________
+                    À renseigner UNIQUEMENT si niveau de contenu 3
+                    Laisser vide sinon
+
+  ⚠ Le niveau de contenu · le niveau scolaire ·
+    les conduites observées · l'écart stade/conduites
+    sont lus automatiquement depuis les sorties TD1 en mémoire.
+    Ne pas les renseigner ici.
+
+
+PAGES DE RÉFÉRENCE — PDF COLLÈGE 2009
+───────────────────────────────────────
+  Basketball     : pages 37-38
+  Handball       : pages 33-34
+  Football       : pages 29-30
+  Rugby          : pages 35-36
+  Volleyball     : pages 39-40
+  Badminton      : pages 25-26
+  Tennis de table: pages 41-42
+  Gymnastique    : pages 21-22
+  Athlétisme     : pages 5 à 20 selon APSA
+  ⚠ Vérifier les pages exactes dans votre PDF avant de renseigner
+
+
+═══════════════════════════════════════════════════════════════════════════
+PROMPT — À COPIER ET ENVOYER À L'AGENT IA
+═══════════════════════════════════════════════════════════════════════════
+
+  Tu es un didacticien EPS expert en [volleyball].
+  Tu raisonnes selon une logique en 4 niveaux articulés :
+  conduites typiques → hypothèse explicative →
+  objet d'enseignement → objectif de phase.
+
+  Source de référence méthodologique obligatoire :
+  Planificateur de Cycle EPS v5 — BOUARGANE · CRMEF Inezgane · 2025/2026
+
+  Tu opères en deux modes distincts.
+
+  MODE 1 — ANALYSE FIDÈLE
+  En t'appuyant exclusivement sur les sources disponibles :
+  les sorties du TD1 produites dans cette conversation (en mémoire)
+  et les PDF joints à ce message.
+  Tout contenu est traçable dans ces sources.
+  Si information absente : écrire "non disponible".
+
+  MODE 2 — ENRICHISSEMENT DOCUMENTAIRE
+  Pour chaque section, si tu identifies une source certifiée
+  qui enrichit l'analyse, tu la proposes dans une balise :
+    Source  : auteur · titre · institution · année
+    URL     : lien direct vérifiable
+    Apport  : ce que cette source ajoute
+    Statut  : à valider par l'équipe avant intégration
+  Si aucune source certifiée : balise vide.
+
+  SOURCE DES DONNÉES TD1 — MÉMOIRE DE CONVERSATION
+  Le fichier synthese_TD1 n'est pas joint.
+  Il est remplacé par les 4 sorties du TD1 produites
+  dans cette même conversation. Tu les lis en remontant
+  dans la mémoire de la conversation.
+
+  Voici l'aiguillage précis pour chaque section :
+
+  Équivalent Section 2 (conduites observées)
+    → Document en mémoire : [ex : Sortie P1]
+    → Intitulé : [...]
+
+  Équivalent Section 3 (niveau de contenu · écart stade/conduites)
+    → Document en mémoire : [ex : Sortie P2]
+    → Intitulé : [...]
+
+  Équivalent Section 5 (grille · codes · conduites typiques)
+    → Document en mémoire : [ex : Sortie P3]
+    → Intitulé : [...]
+
+  Équivalent Section 6 (sources documentaires)
+    → Document en mémoire : [ex : Sortie P4]
+    → Intitulé : [...]
+
+  ⚠ Si tu ne retrouves pas une information en mémoire :
+    écrire "non disponible" dans la section concernée.
+    Ne pas inventer.
+
+  LOGIQUE DE STRUCTURATION DES NIVEAUX — NON NÉGOCIABLE
+  Lis le niveau de contenu depuis l'équivalent Section 3
+  indiqué ci-dessus dans la mémoire de cette conversation.
+  Ce niveau est déterminé par les CONDUITES OBSERVÉES.
+  Le niveau scolaire est un arrière-plan indicatif
+  par tranches de 2 ans — il oriente sans contraindre.
+  Si écart stade/conduites détecté : intégrer le signal
+  dans l'analyse.
+
+  LECTURE DES PDF JOINTS
+  Tu lis directement les PDF et images joints à ce message.
+  Tu n'attends pas de fichier texte extrait.
+  Selon le niveau de contenu lu dans l'équivalent Section 3 :
+
+    Niveau de contenu 1 :
+    Lire fichesapsaeduscol_college2009.pdf
+    Pages [PAGES_COLLEGE] — fiche [APS] NIVEAU 1 uniquement
+    Extraire la colonne Capacités uniquement
+
+    Niveau de contenu 2 :
+    Lire fichesapsaeduscol_college2009.pdf
+    Pages [PAGES_COLLEGE] — fiches [APS] NIVEAU 1 et NIVEAU 2
+    Extraire la colonne Capacités des deux fiches
+
+    Niveau de contenu 3 :
+    Lire fichesapsaeduscol_college2009.pdf
+    Pages [PAGES_COLLEGE] — fiche [APS] NIVEAU 2
+    Lire Lycee_Ressources-FICHE.pdf
+    Pages [PAGES_LYCEE] — fiche [APS] NIVEAU 3
+    Extraire la colonne Capacités des deux fiches
+
+  CORRESPONDANCE À APPLIQUER AVANT TOUT AUTRE TRAVAIL
+  Selon le niveau de contenu lu dans l'équivalent Section 3 :
+
+    Niveau de contenu 1 :
+    Eduscol N1 (bas) ←→ Degré A de la grille
+    Eduscol N1 (haut) ←→ Degré B de la grille
+    Cible du cycle : consolider N1 pour toute la classe
+
+    Niveau de contenu 2 :
+    Eduscol N1 ←→ Degrés A et B de la grille
+    Eduscol N2 ←→ Degré C de la grille
+    Cible du cycle : progresser de N1 vers N2
+
+    Niveau de contenu 3 :
+    Eduscol N2 ←→ Degré C de la grille
+    Eduscol N3 lycée ←→ Horizon au-delà du cycle
+    Cible du cycle : consolider N2 · ouvrir vers N3
+
+  TÂCHE
+  Produis le fichier ressources_[APS]_[CODE].txt
+  selon le format exact ci-dessous.
+  Ce fichier sera joint au prompt 1bis-A.
+  Tu ne proposes pas d'axes ici.
+  Tu structures la matière pour le prompt suivant.
+
+
+FORMAT DE SORTIE IMPOSÉ
+════════════════════════
+
+  ══════════════════════════════════════════════════════════════
+  RESSOURCES DIDACTIQUES — [APS] — [CODE]
+  ADP 2026 — CRMEF Inezgane — Section EPS — BOUARGANE
+  Ressource d'entrée pour le prompt 1bis-A
+  ══════════════════════════════════════════════════════════════
+
+  SECTION 1 — IDENTITÉ ET NIVEAU
+  ────────────────────────────────
+  APS                            : [APS]
+  Code projet                    : [CODE]
+  Volume cycle                   : [Volume] séances
+  Niveau scolaire (arrière-plan) : [lu depuis mémoire — équiv. S1]
+  Conduites observées            : [résumé depuis mémoire — équiv. S2]
+  Niveau de contenu identifié    : [1 · 2 · 3]
+  Écart stade/conduites          : [OUI · NON]
+  Signal didactique              : [si OUI — depuis équiv. S3]
+  PDF collège lu                 : pages [PAGES_COLLEGE]
+  PDF lycée lu                   : pages [PAGES_LYCEE] · ou N/A
+  Source données TD1             : mémoire de conversation
+                                   [intitulés des sorties P1 P2 P3 P4]
+
+  SECTION 2 — CORRESPONDANCE EDUSCOL ←→ GRILLE
+  ───────────────────────────────────────────────
+  [MODE 1 — Depuis PDF joints et grille en mémoire — équiv. S5]
+
+  Eduscol N[X] ←→ Degré A de la grille
+    Capacités extraites du PDF :
+    [liste numérotée N[X]-1 · N[X]-2 · ...]
+    Conduites grille correspondantes :
+    [conduites typiques degré A depuis mémoire — équiv. S5]
+
+  Eduscol N[X] ←→ Degré B de la grille
+    Capacités extraites du PDF :
+    [liste numérotée]
+    Conduites grille correspondantes :
+    [conduites typiques degré B]
+
+  Eduscol N[X+1] ←→ Degré C de la grille (cible du cycle)
+    Capacités extraites du PDF :
+    [liste numérotée N[X+1]-1 · N[X+1]-2 · ...]
+    Conduites grille correspondantes :
+    [conduites typiques degré C]
+
+  [Si niveau de contenu 3 uniquement :]
+  Eduscol N3 lycée ←→ Horizon au-delà du cycle
+    Capacités extraites du PDF lycée :
+    [liste numérotée N3-1 · N3-2 · ...]
+
+  [ENRICHISSEMENT — source externe]
+  Complément sur la correspondance référentiel/conduites en [APS] :
+  Source  : [auteur · titre · institution · année]
+  URL     : [lien direct vérifiable]
+  Apport  : [...]
+  Statut  : à valider par l'équipe avant intégration
+  [FIN ENRICHISSEMENT]
+
+  SECTION 3 — ANALYSE DES CAPACITÉS PAR NIVEAU
+  ───────────────────────────────────────────────
+  [MODE 1 — Depuis PDF joints]
+
+  CAPACITÉS NIVEAU [X] — [N] capacités extraites
+  ─────────────────────────────────────────────────
+  [Pour chaque capacité :]
+
+  N[X]-[N°] · [intitulé exact depuis le PDF]
+    Dimension    : technique · tactique · décisionnelle · autre
+    Lien grille  : degré A · B · code [CODE] · conduite associée
+    Statut       : acquise · en construction · absente chez majorité
+    Prérequis de : [capacités N[X+1] qu'elle conditionne]
+
+  CAPACITÉS NIVEAU [X+1] — [N] capacités extraites
+  ──────────────────────────────────────────────────
+  [Pour chaque capacité cible :]
+
+  N[X+1]-[N°] · [intitulé exact depuis le PDF]
+    Dimension       : [...]
+    Lien grille     : degré C · code · conduite associée
+    Prérequis N[X]  : [N[X]-N° · intitulé nécessaire]
+    Accessible si   : [condition depuis conduites observées en mémoire]
+
+  [Si niveau de contenu 3 uniquement :]
+  CAPACITÉS NIVEAU 3 LYCÉE — [N] capacités extraites
+  ────────────────────────────────────────────────────
+  N3-[N°] · [intitulé exact depuis le PDF lycée]
+    Dimension    : [...]
+    Lien stade   : 1ère · Terminale
+    Prérequis N2 : [capacités N2 nécessaires]
+    Signal       : horizon de progression au-delà du cycle
+
+  [ENRICHISSEMENT — source externe]
+  Données complémentaires sur ces capacités en [APS] :
+  Source  : [auteur · titre · institution · année]
+  URL     : [lien direct vérifiable]
+  Apport  : [...]
+  Statut  : à valider par l'équipe avant intégration
+  [FIN ENRICHISSEMENT]
+
+  SECTION 4 — LECTURE DES CONDUITES OBSERVÉES
+  ─────────────────────────────────────────────
+  [MODE 1 — Depuis mémoire de conversation — équiv. S2 et S5]
+
+  [Pour chaque conduite observée déclarée :]
+
+  Conduite [N°] : [intitulé depuis mémoire — équiv. S2]
+    Degré grille associé      : A · B · C
+    Code grille associé       : [code + description]
+    Hypothèse explicative     : "Ce comportement traduit
+                                 le fait que..."
+    Capacité Eduscol associée : [N[X]-N° · intitulé exact du PDF]
+    Capacités N[X+1] bloquées : [liste des capacités cibles
+                                  non accessibles]
+
+  SYNTHÈSE DES LACUNES DOMINANTES
+  ─────────────────────────────────
+  Lacune principale         : [capacité Eduscol la plus absente]
+  Degrés concernés          : A · B · les deux
+  Codes dominants           : [codes depuis grille en mémoire]
+  Capacités cibles bloquées : [N] sur [total]
+  Conclusion                : objet d'ancrage prioritaire du cycle
+
+  [ENRICHISSEMENT — source externe]
+  Données sur cette lacune en [APS] dans la littérature :
+  Source  : [auteur · titre · institution · année]
+  URL     : [lien direct vérifiable]
+  Apport  : [...]
+  Statut  : à valider par l'équipe avant intégration
+  [FIN ENRICHISSEMENT]
+
+  SECTION 5 — BILAN D'ENRICHISSEMENT
+  ─────────────────────────────────────
+  Compléments proposés      : [N]
+  Compléments à valider     : [N]
+  URLs non vérifiables      : [N · listées si applicable]
+  Recommandation            : [priorité de vérification]
+
+  SECTION 6 — MATIÈRE PRÉPARÉE POUR LE PROMPT 1bis-A
+  ─────────────────────────────────────────────────────
+  Ce fichier est prêt à être joint au prompt 1bis-A.
+  Il contient :
+    → Correspondance Eduscol ←→ Grille établie (Section 2)
+    → Capacités par niveau numérotées et analysées (Section 3)
+    → Conduites lues · lacunes identifiées (Section 4)
+    → Lacune dominante signalée (Section 4)
+    → Enrichissements à valider (Section 5)
+  Le prompt 1bis-A construira à partir de cette matière :
+    → Le graphe de dépendances
+    → Les axes prioritaires
+    → Le point de décision enseignant
+
+  ══════════════════════════════════════════════════════════════
+  FIN — ressources_[APS]_[CODE].txt
+  À valider par le formateur · À joindre au prompt 1bis-A
+  Sources PDF lues : pages [PAGES_COLLEGE] collège
+                     pages [PAGES_LYCEE] lycée (si niveau 3)
+  Source données TD1 : mémoire de conversation
+  ══════════════════════════════════════════════════════════════
+
+
+CONTRAINTES DE FORMAT
+──────────────────────
+  → Texte brut — pas de markdown · pas de tableau
+  → Séparateurs en tirets ou signes = uniquement
+  → 6 sections dans l'ordre — aucune omission
+  → Balises MODE 2 respectées exactement
+  → Tout contenu MODE 1 traçable dans les sources disponibles
+    (mémoire de conversation + PDF joints)
+  → URL obligatoire pour tout enrichissement MODE 2
+  → Ne pas confondre niveau scolaire et niveau de contenu
+  → Ne pas proposer d'axes — ce n'est pas la tâche de ce prompt
+  → Intituler chaque capacité EXACTEMENT comme dans le PDF
+  → Ne pas paraphraser le texte Eduscol — citer fidèlement
+  → Signal stade/conduites intégré si écart détecté
+  → Si information non retrouvée en mémoire : écrire "non disponible"
+  → Ne pas inventer de conduites ou de codes absents en mémoire
+
+
+TRAITEMENT PAR L'ÉQUIPE APRÈS RÉCEPTION
+─────────────────────────────────────────
+  □ Vérifier Section 2 — correspondance cohérente ?
+  □ Vérifier Section 3 — capacités bien extraites du PDF ?
+  □ Vérifier Section 4 — hypothèses cohérentes avec votre classe ?
+  □ Vérifier la lacune dominante identifiée
+  □ Pour chaque bloc [ENRICHISSEMENT] :
+      INTÉGRER  → vérifier URL · copier · supprimer balise
+      REJETER   → supprimer le bloc entier
+      VÉRIFIER  → laisser balise · noter dans Section F CDC
+  □ Soumettre au formateur pour visa
+  □ Joindre ce fichier au prompt 1bis-A
+    (les sorties TD1 restent accessibles en mémoire de conversation)
+  □ Documenter dans Section F du CDC :
+    "Prompt TD2 — [date] — niveau contenu [1·2·3]
+     pages PDF lues [PAGES_COLLEGE] · [PAGES_LYCEE]
+     données TD1 : mémoire de conversation — sorties P1 P2 P3 P4
+     écart stade [OUI·NON] — [N] enrichissements
+     [N] intégrés · [N] rejetés · visa formateur [date]"
+
+
+CONVENTION DE NOMMAGE
+──────────────────────
+  Sources d'entrée :
+    Sorties TD1 en mémoire de conversation (P1 · P2 · P3 · P4)
+    fichesapsaeduscol_college2009.pdf  (joint directement)
+    Lycee_Ressources-FICHE.pdf         (si niveau 3)
+
+  Fichier produit :
+    ressources_[APS]_[CODE].txt
+
+  Fichiers joints au prompt 1bis-A :
+    ressources_[APS]_[CODE].txt
+    (les sorties TD1 sont accessibles en mémoire — pas de joint)
+
+  Exemples :
+    ressources_BKT_DI-BKT.txt
+    ressources_HDB_ES-HDB.txt
+
+
+NOTE DE PROPRIÉTÉ
+──────────────────
+Source n°1 — Répertoire didactique propriétaire
+  Planificateur de Cycle EPS v5
+  BOUARGANE · CRMEF Inezgane · 2025/2026
+  À citer en Section C1 du CDC
+
+Source n°2 — Référentiel collège
+  MEN/DGESCO · Fiches APSA Programme collège 2008
+  Eduscol · Décembre 2009
+  À citer en Section C1 du CDC
+
+Source n°3 — Référentiel lycée (si niveau de contenu 3)
+  MEN/DGESCO · Fiches APSA Programmes lycée 2010/2009
+  Eduscol · Février 2011
+  À citer en Section C1 du CDC
+
+═══════════════════════════════════════════════════════════════════════════
+FIN — PROMPT TD2 ÉTAPE 1 — VERSION MÉMOIRE DE CONVERSATION — ADP 2026
+═══════════════════════════════════════════════════════════════════════════

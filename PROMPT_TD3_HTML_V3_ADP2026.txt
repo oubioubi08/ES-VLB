@@ -1,0 +1,492 @@
+═══════════════════════════════════════════════════════════════════════════
+PROMPT TD3 — CONSTRUCTION DE L'OUTIL HTML v0
+ADP 2026 · CRMEF Inezgane · Section EPS · Voie B — HTML autonome
+Version 3 — Planification dynamique · Axes depuis référentiel TD2
+             Slider séances · Indicateur de passage indicatif
+═══════════════════════════════════════════════════════════════════════════
+
+FICHIERS A JOINDRE AVANT DE LANCER CE PROMPT
+─────────────────────────────────────────────
+  □ referentiel_[APS]_[CODE].txt    — seuils A/B/C · SA · conduites motrices
+  □ grille_[APS]_[CODE].txt         — codes métier OBS01 / OBS02 / OBS03
+  □ synthese_TD1_[APS]_[CODE].txt   — observables + unités + justifications
+
+  L'IA doit lire ces fichiers et en extraire automatiquement :
+    → Noms et unités des observables (OBS-01 / OBS-02 / OBS-03)
+    → Codes métier par degré (A / B / C) pour chaque observable
+    → Seuils numériques /10 validés par le formateur
+    → Noms des SA (SA-A1 / SA-B1 / SA-C1)
+    → Conduites motrices attendues par niveau (source des indicateurs)
+    → Axes prioritaires didactiques (source de la phase intermédiaire)
+
+  Ne pas réinventer ces données. Les extraire telles quelles des fichiers.
+
+PRÉREQUIS BLOQUANT
+───────────────────
+  Référentiel 1bis-C validé par le formateur.
+  Ne pas lancer ce prompt si les seuils ne sont pas encore approuvés.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROMPT FINAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Tu es un développeur frontend expert et un didacticien EPS.
+
+Je suis étudiant en formation EPS au CRMEF Inezgane.
+Je te joins les fichiers référentiel, grille et synthèse TD1 de mon groupe.
+Lis-les attentivement avant de générer quoi que ce soit.
+Toutes les données pédagogiques (observables, codes, seuils, SA, axes,
+conduites motrices) doivent être extraites de ces fichiers.
+Ne pas inventer ni compléter avec des données génériques.
+
+Produis un fichier HTML unique, autonome, déployable sur GitHub Pages,
+pour un outil d'aide à la décision pédagogique en EPS.
+L'outil suit la logique du CDC ADP 2026 en 5 couches :
+  Couche 1 — Saisie terrain
+  Couche 2 — Traitement statistique
+  Couche 3 — Classification profils A / B / C
+  Couche 4 — Aide à la décision (axes + planification)
+  Couche 5 — Sortie lisible sans formation technique
+
+L'outil ne produit PAS de note. Il aide l'enseignant à décider.
+La décision finale reste toujours à l'enseignant.
+
+───────────────────────────────────────────────────────────────────────────
+BLOC 1 — CONTRAINTES D'ENTRÉE (Couche 1)
+───────────────────────────────────────────────────────────────────────────
+
+FORMULAIRE DE SAISIE MANUELLE
+  1 ligne par élève · champs : Prénom + OBS-01 + OBS-02 + OBS-03 (0 à 10)
+  Validation : champ vide ou hors plage → message d'alerte sur la ligne
+  Prénom obligatoire · valeurs numériques 0 à 10 uniquement
+
+IMPORT CSV TERRAIN (format ADP 2026)
+  Le fichier CSV terrain contient des lignes de métadonnées avant
+  l'en-tête. Parcourir tout le fichier pour trouver la ligne contenant
+  "Nom_Eleve" quelle que soit sa position.
+
+  Reconnaître les colonnes dans cet ordre de priorité :
+
+  PRIORITÉ 1 — Codes métier bruts (extraits du référentiel joint)
+    Colonnes nommées : OBS01_[Nom observable] / OBS02_... / OBS03_...
+    Mapper chaque code vers son score /10 selon le référentiel :
+      Degré A = 3 / Degré B = 6 / Degré C = 9
+
+  PRIORITÉ 2 — Degrés lettres
+    Colonnes nommées : OBS01_Degre / OBS02_Degre / OBS03_Degre
+    Mapper : A = 3 · B = 6 · C = 9
+
+  PRIORITÉ 3 — Numériques directs
+    Colonnes nommées : OBS1 / OBS2 / OBS3 (valeurs 0 à 10)
+
+  Ignorer : lignes vides · métadonnées · lignes BILAN_CLASSE
+  En cas d'échec : afficher nombre de lignes ignorées + raison
+
+RÉFÉRENTIELS (extraits des fichiers joints — ne pas modifier)
+  Seuil C (avancé)        : >= [valeur extraite du référentiel]
+  Seuil B (intermédiaire) : entre [valeur] et [valeur]
+  Seuil A (débutant)      : < [valeur extraite du référentiel]
+
+───────────────────────────────────────────────────────────────────────────
+BLOC 2 — TRAITEMENT INTERNE (Couches 2 et 3)
+───────────────────────────────────────────────────────────────────────────
+
+CALCULS PAR ÉLÈVE
+  Moyenne des 3 observables /10
+  Note /20 proportionnelle
+  Rang dans la classe (gestion ex aequo)
+
+PROFIL GLOBAL
+  A / B / C selon les seuils du référentiel joint
+
+PROFIL DÉTAILLÉ PAR OBSERVABLE
+  Calculer le profil de chaque observable indépendamment
+  Afficher : OBS1:[profil] / OBS2:[profil] / OBS3:[profil]
+  Ex : "A / B / C" — un élève peut être mixte
+
+LACUNE DOMINANTE PAR ÉLÈVE
+  Identifier les observables strictement sous le seuil B
+  Classer du plus bas au plus haut (L1 = plus urgente)
+  Format : "L1 — [Nom OBS] : X.X/10"
+  Si aucune lacune : "Aucune lacune identifiée"
+
+AXE PRIORITAIRE PERSONNALISÉ
+  1 seule phrase d'action basée sur la lacune dominante réelle
+  Extraire le libellé de l'axe depuis le référentiel TD2 joint
+  Ne pas produire de phrase générique identique pour tous
+
+SA RECOMMANDÉE (1 seule par élève)
+  Extraite du référentiel joint selon la lacune dominante
+  SA-A1 / SA-B1 / SA-C1 — noms exacts du référentiel
+
+───────────────────────────────────────────────────────────────────────────
+BLOC 3 — ARCHITECTURE EN 4 ÉTAPES (Couche 4 — CDC)
+───────────────────────────────────────────────────────────────────────────
+
+L'outil est organisé en 4 étapes séquentielles.
+Chaque étape se débloque après validation de la précédente.
+L'enseignant contrôle la progression entre les étapes.
+
+┌─────────────────────────────────────────────────────────────────┐
+│  ÉTAPE 1       ÉTAPE 2          ÉTAPE 3         ÉTAPE 4        │
+│  Diagnostic → Axes prioritaires → Paramétrage → Planification   │
+│  (auto)        (enseignant valide) (slider)      (générée)      │
+└─────────────────────────────────────────────────────────────────┘
+
+─────────────────────────────────────────────────
+ÉTAPE 1 — DIAGNOSTIC DE CLASSE (automatique)
+─────────────────────────────────────────────────
+
+Déclenché après clic sur "Analyser".
+Afficher :
+
+  Tableau individuel :
+    Rang | Prénom | OBS-01 | OBS-02 | OBS-03 | Moyenne | /20 |
+    Profil global | Profil détaillé | Lacune(s) | Axe prioritaire | SA
+    Couleur de fond : A = rouge clair · B = orange clair · C = vert clair
+
+  Bilan de classe :
+    Cartes : effectif et % par profil A / B / C · Moyenne classe /10 et /20
+    Analyse par observable (moyenne de la classe) :
+      Si moy < seuil B  → lacune collective → SA prioritaire à renforcer
+      Si moy entre B-C  → en cours → consolider
+      Si moy >= C       → bon niveau → approfondir
+    Groupes de besoin : 1 ligne par profil (effectif + SA associée)
+    Décision dominante automatique :
+      Majorité A → "Classe débutante — Priorité fondamentaux"
+      Majorité B → "Classe intermédiaire — Différenciation A/B"
+      Majorité C → "Classe avancée — Approfondissement et tutorat"
+
+  Bouton en bas : [ Passer à l'étape 2 — Axes prioritaires ]
+
+─────────────────────────────────────────────────
+ÉTAPE 2 — SÉLECTION DES AXES PRIORITAIRES
+         (validation par l'enseignant)
+─────────────────────────────────────────────────
+
+PRINCIPE
+  L'outil propose 6 axes extraits du référentiel didactique TD2 joint.
+  Chaque axe est accompagné d'un indicateur de pertinence calculé
+  depuis les données réelles de la classe (% de lacune collective).
+  L'enseignant sélectionne 3 ou 4 axes maximum.
+  La planification ne sera générée que sur les axes validés.
+
+GÉNÉRATION DES 6 AXES
+  Extraire les axes prioritaires depuis le référentiel TD2 joint.
+  Le référentiel contient les axes sous forme de conduites motrices,
+  objectifs d'enseignement ou situations d'apprentissage hiérarchisées.
+  Lire ces axes tels quels — ne pas les inventer.
+
+  Classer les 6 axes automatiquement par ordre de pertinence :
+    Pertinence = % d'élèves présentant une lacune sur l'observable lié
+    Axe lié à l'observable le plus lacunaire = classé en premier
+    Axes contextuels (profil dominant, distribution) = classés ensuite
+
+  Format de chaque axe affiché :
+    ☐  Axe [N] — [Intitulé extrait du référentiel TD2]
+                 Pertinence : [X]% des élèves concernés
+                 Observable lié : OBS-0[X] · Moy. classe : X.X/10
+                 SA associée : [SA-XX nom court]
+
+RÈGLES DE SÉLECTION
+  Minimum 3 axes · Maximum 4 axes
+  Si l'enseignant tente de cocher un 5e : message "Maximum 4 axes atteint"
+  Si moins de 3 cases cochées : bouton "Générer" grisé avec message
+  Les axes non cochés sont ignorés dans la planification
+
+  Bouton actif quand 3 ou 4 axes cochés :
+  [ Paramétrer le cycle — Étape 3 ]
+
+─────────────────────────────────────────────────
+ÉTAPE 3 — PARAMÉTRAGE DU CYCLE
+         (slider séances)
+─────────────────────────────────────────────────
+
+SLIDER SÉANCES
+  Un slider horizontal glissant · valeurs entières de 6 à 10
+  Affichage dynamique en temps réel à côté du slider :
+    "Cycle de [N] séances · [X] séquences · [Y] séances par séquence"
+
+  Règle de distribution automatique selon axes validés et séances :
+
+  ┌──────────┬──────────────────────────────────────────────────────┐
+  │ Axes     │ 6 séances  7 séances  8 séances  9 séances  10 séances│
+  ├──────────┼──────────────────────────────────────────────────────┤
+  │ 3 axes   │  2+2+2     2+2+3     3+2+3      3+3+3      3+4+3    │
+  │ 4 axes   │  1+2+2+1   2+2+2+1   2+2+2+2   2+3+2+2    3+2+3+2  │
+  └──────────┴──────────────────────────────────────────────────────┘
+
+  Afficher sous le slider un aperçu en temps réel :
+    "Séquence 1 ([N] séances) — Axe : [Axe 1 validé]"
+    "Séquence 2 ([N] séances) — Axe : [Axe 1+2 validés]"
+    "Séquence 3 ([N] séances) — Axe : [Axe 2+3 validés]"
+    etc.
+
+  Bouton en bas :
+  [ Générer la planification — Étape 4 ]
+
+─────────────────────────────────────────────────
+ÉTAPE 4 — PLANIFICATION DYNAMIQUE DU CYCLE
+         (générée sur axes validés + séances choisies)
+─────────────────────────────────────────────────
+
+STRUCTURE GÉNÉRALE
+  Nombre de séquences = déterminé par le tableau de distribution
+  Nombre de séances par séquence = calculé automatiquement
+  Progression des axes sur le cycle :
+    Séquence 1 : Axe 1 prioritaire · fondamentaux · tous groupes
+    Séquence 2 : Axes 1+2 combinés · différenciation A/B/C active
+    Séquence N : Axes finaux · consolidation B · approfondissement C
+    Dernière séance du cycle : évaluation formative ou tournoi officiel
+
+TABLEAU PAR SÉQUENCE
+  En-tête de séquence :
+    Numéro · Titre · Objectif général · Axes travaillés · Séances concernées
+
+  Tableau interne par séance avec colonnes :
+    N° séance | Axe dominant | Objectif de séance |
+    Groupe A (débutants) — SA et consigne |
+    Groupe B (intermédiaires) — SA et consigne |
+    Groupe C (avancés) — SA et consigne
+
+  Contenu de chaque cellule groupe :
+    Nom de la SA (extrait du référentiel joint)
+    1 consigne courte en français
+    1 critère de réussite observable
+
+  ⚠️ RÈGLE APOSTROPHES (anti-SyntaxError)
+    Tout texte en français dans le JS contenant une apostrophe
+    doit utiliser OBLIGATOIREMENT l'une de ces formes :
+      Guillemets doubles : "l'élève choisit..."
+      Échappement        : 'l\'élève choisit...'
+      Unicode            : 'l\u2019élève choisit...'
+    INTERDIT : 'l'élève...' → SyntaxError garantie (page blanche)
+    Appliquer à : consignes · objectifs · indicateurs · titres
+
+INDICATEUR DE PASSAGE (indicatif uniquement)
+  Afficher après chaque séance (sauf la dernière de la séquence) :
+    Un encadré discret sous la ligne de séance :
+    "📋 À observer avant la séance suivante — [comportement attendu]"
+
+  Le comportement attendu est extrait du référentiel TD2 joint :
+    Lire les conduites motrices attendues pour l'axe concerné
+    Formuler en 1 phrase : verbe d'action + condition + contexte
+    Exemple : "l'élève choisit spontanément le couloir latéral
+               dans au moins 2 actions sur 3 en situation de match"
+
+  STATUT INDICATIF STRICT
+    Pas de seuil numérique imposé dans l'outil
+    Pas de logique conditionnelle liée à l'indicateur
+    Pas de blocage de séance si non atteint
+    Mention visible sous l'indicateur :
+      "(Indicatif — décision de progression : vous)"
+
+RÉSUMÉ DU CYCLE (affiché en bas de l'étape 4)
+  Tableau synthèse :
+    Séquence | Axes travaillés | Nb séances | Profil dominant ciblé
+  Recommandation globale :
+    "Ce cycle de [N] séances cible [X] axes prioritaires.
+     Profil le plus concerné : [A/B/C] ([N] élèves · [%]).
+     Réévaluer après la séquence [N] avec une nouvelle collecte terrain."
+
+───────────────────────────────────────────────────────────────────────────
+BLOC 4 — CONTRAINTES DE SORTIE COMPLÉMENTAIRES
+───────────────────────────────────────────────────────────────────────────
+
+EXPORT CSV (bouton disponible dès l'étape 1)
+  Colonnes : Prénom | Code OBS-01 | OBS-01 | Code OBS-02 | OBS-02 |
+             Code OBS-03 | OBS-03 | Moyenne | /20 | Rang |
+             Profil global | Profil détaillé | Lacune 1 | SA recommandée
+  Nom du fichier : outil_v0_[APS]_[CODE]_[date].csv
+  Encodage UTF-8 avec BOM
+
+IMPRESSION (bouton disponible à toutes les étapes)
+  CSS @media print : masquer formulaires · boutons · slider · onglets
+  En-tête : APS · Groupe · Niveau · Date
+  Imprimer l'étape active uniquement
+
+NAVIGATION ENTRE ÉTAPES
+  Indicateur visuel de progression : Étape 1 → 2 → 3 → 4
+  Possibilité de revenir à l'étape précédente à tout moment
+  Retour à l'étape 2 : réinitialise les étapes 3 et 4
+  Retour à l'étape 1 : réinitialise toutes les étapes suivantes
+
+───────────────────────────────────────────────────────────────────────────
+BLOC 5 — CONTRAINTES TECHNIQUES (CDC — Voie B)
+───────────────────────────────────────────────────────────────────────────
+
+  HTML + JS vanilla uniquement — AUCUNE bibliothèque externe
+  Fichier UNIQUE déployable sur GitHub Pages
+  Responsive — lisible sur smartphone (min 360px)
+  Fonctionne HORS CONNEXION une fois chargé
+  Commentaires dans le code (1 ligne par fonction principale)
+  Nom du fichier : outil_v0_[APS]_[CODE].html
+
+  INTERDIT
+    Pas de framework (React · Vue · Bootstrap · jQuery)
+    Pas d'accès API ou réseau pendant l'utilisation
+    Pas de localStorage ni base de données
+
+  RÈGLES ANTI-BUGS (issues simulation terrain — toutes obligatoires)
+
+    P1 — Apostrophes françaises dans le JS
+         Voir règle dans BLOC 3 ÉTAPE 4 ci-dessus
+         S'applique à TOUT texte pédagogique en français dans le JS
+
+    P2 — En-tête CSV à position variable
+         Parcourir tout le fichier pour trouver "Nom_Eleve"
+         Ne jamais supposer que l'en-tête est en ligne 1
+
+    P3 — Codes métier prioritaires
+         Chercher d'abord les colonnes avec le nom de l'observable
+         Puis les colonnes _Degre · Puis les colonnes numériques
+
+    P4 — Extraction fidèle du référentiel
+         Axes · SA · conduites motrices = extraits des fichiers joints
+         Aucun contenu pédagogique inventé ou générique
+
+───────────────────────────────────────────────────────────────────────────
+BLOC 6 — FORMAT DE RÉPONSE ATTENDU
+───────────────────────────────────────────────────────────────────────────
+
+LIVRABLE 1 — Code HTML complet
+  Fichier unique prêt à copier-coller dans VS Code
+  Structure : 4 étapes séquentielles dans une interface à onglets
+  ou à sections révélées progressivement (au choix du développeur)
+
+LIVRABLE 2 — Confirmation d'extraction
+  Avant le code : lister ce que l'IA a extrait des fichiers joints :
+    "Observables extraits : [liste]"
+    "Codes métier extraits : [tableau OBS × A/B/C]"
+    "Seuils extraits : A=[val] · B=[val-val] · C=[val]"
+    "Axes extraits du référentiel TD2 : [liste des 6 axes]"
+    "SA extraites : SA-A1=[nom] · SA-B1=[nom] · SA-C1=[nom]"
+    "Conduites motrices extraites pour indicateurs : [liste]"
+  Si une information est manquante dans les fichiers joints :
+    Le signaler explicitement avant de générer le code
+    Ne pas inventer la donnée manquante
+
+LIVRABLE 3 — Série de 5 tests de validation
+
+  TEST 1 — Profil A pur
+    Entrée  : obs1=2.0 · obs2=3.0 · obs3=4.0
+    Attendu : Profil A global · Profil détaillé A/A/A · Lacune L1 OBS-01
+
+  TEST 2 — Profil mixte (le plus important)
+    Entrée  : obs1=2.0 · obs2=7.0 · obs3=5.0
+    Attendu : Profil B global · Profil détaillé A/B/B · Lacune L1 OBS-01
+
+  TEST 3 — Profil C pur
+    Entrée  : obs1=9.0 · obs2=8.5 · obs3=9.0
+    Attendu : Profil C · Aucune lacune · SA = SA-C1 approfondissement
+
+  TEST 4 — Slider et distribution
+    Sélectionner 3 axes · Déplacer slider de 6 à 10
+    Vérifier que l'aperçu en temps réel change à chaque position
+    Vérifier la distribution : 3 axes × 8 séances = 3+2+3
+
+  TEST 5 — Console navigateur (anti-bug P1)
+    Ouvrir F12 → Console → vérifier 0 erreur rouge
+    Si SyntaxError : chercher apostrophe non échappée dans le JS
+
+LIVRABLE 4 — Message de commit GitHub
+  feat: diagnostic + axes TD2 + slider 6-10 seances + planif dynamique v0
+
+RAPPELS CRITIQUES
+  L'outil ne produit pas de note
+  Les seuils sont ceux du référentiel joint — ne pas les modifier
+  Les axes viennent du référentiel TD2 — ne pas les inventer
+  Les indicateurs de passage sont indicatifs — aucun seuil imposé
+  La décision finale reste toujours à l'enseignant
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHECKLIST AVANT DE LANCER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  □ Les 3 fichiers TD1/TD2 sont joints à la conversation
+  □ Référentiel 1bis-C validé par le formateur
+  □ Le référentiel contient bien les 6 axes prioritaires didactiques
+  □ Le référentiel contient les conduites motrices par niveau
+  □ Dépôt GitHub actif + GitHub Pages activé
+  □ Ce prompt sera documenté en CDC Section F après réception du code
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHECKLIST APRÈS RÉCEPTION DU CODE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  □ Vérifier la confirmation d'extraction (LIVRABLE 2)
+    → Les axes extraits correspondent bien au référentiel TD2 ?
+    → Les SA et conduites motrices sont fidèles ?
+  □ F12 → Console → 0 erreur rouge (TEST 5)
+  □ Exécuter TEST 1, 2, 3 (profils)
+  □ Exécuter TEST 4 (slider + distribution temps réel)
+  □ Importer le fichier terrain CSV (vérifier codes métier reconnus)
+  □ Sélectionner 3 axes → tenter d'en cocher un 5e → message bloquant
+  □ Tester slider à 6, 8 et 10 séances → vérifier l'aperçu
+  □ Vérifier les indicateurs de passage : mention "(Indicatif)" visible
+  □ Tester Export CSV → ouvrir dans Excel → encodage UTF-8 correct
+  □ Tester Impression → page propre A4 → boutons masqués
+  □ Committer avec le message recommandé
+  □ Vérifier l'URL GitHub Pages (2-3 min après commit)
+  □ Documenter dans CDC Section F :
+      Prompt utilisé · Extraction vérifiée · Bugs rencontrés ·
+      Corrections manuelles · Valeur pédagogique de l'outil
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROMPT DE DÉBOGAGE — À copier si page blanche ou erreur console
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  "Tu es un développeur JavaScript expert.
+   Ce fichier HTML produit l'erreur suivante en console : [coller erreur]
+   Voici le code complet : [coller le code]
+
+   Identifie la cause exacte.
+   Si SyntaxError avec identifiant inattendu :
+     Cherche une apostrophe française non échappée dans une chaîne JS.
+     Remplace par guillemets doubles ou forme Unicode \u2019.
+   Si l'import CSV échoue :
+     Vérifie que la recherche de l'en-tête parcourt tout le fichier.
+     Vérifie la priorité de lecture des colonnes (codes métier en premier).
+   Si le slider ne met pas à jour l'aperçu :
+     Vérifie que l'événement input est bien attaché au slider.
+   Fournis le code corrigé complet prêt à copier-coller."
+
+  Commit de correction : fix: [description courte du bug corrigé]
+  Documenter dans CDC Section F.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HISTORIQUE DES VERSIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  v1 — Prompt initial TD3
+       Entrée/sortie basiques · import CSV simple · planification 6 séances
+
+  v2 — Corrections simulation terrain (Mai 2026)
+       + Règles anti-bugs P1 à P4
+       + Profil détaillé · lacune dominante · axe personnalisé
+       + Planification 3 séquences avec colonnes A/B/C
+       + Indicateurs de suivi entre séances
+
+  v3 — Planification dynamique (Mai 2026)
+       + Fichiers TD1/TD2 joints (suppression du template manuel)
+       + Extraction automatique depuis le référentiel didactique
+       + Architecture 4 étapes séquentielles
+       + Étape 2 : sélection axes (3 ou 4 parmi 6 extraits du ref TD2)
+       + Étape 3 : slider glissant 6 à 10 séances
+       + Distribution automatique séances × axes (tableau 5×2)
+       + Aperçu temps réel de la distribution sous le slider
+       + Indicateur de passage indicatif (aucun seuil imposé)
+       + Résumé du cycle en fin de planification
+       + Confirmation d'extraction obligatoire avant le code
+
+
+═══════════════════════════════════════════════════════════════════════════
+FIN — PROMPT_TD3_HTML_V3_ADP2026.txt
+ADP 2026 · CRMEF Inezgane · Section EPS · Voie B — HTML autonome
+À documenter en CDC Section F après chaque utilisation
+═══════════════════════════════════════════════════════════════════════════
